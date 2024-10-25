@@ -14,6 +14,16 @@ body {
     background-color: #00204A;
 }
 
+.navbar-toggler {
+    border: 4px solid black; /* Atur ketebalan dan warna border */
+    border-radius: 5px; /* Atur sudut melengkung jika diperlukan */
+}
+
+.navbar-toggler:hover {
+    border-color: black; /* Warna border saat hover */
+}
+
+
 .navbar-brand, .navbar-brand:hover{
     font-family: "Lexend", serif;
     font-weight: bold;
@@ -80,4 +90,46 @@ section {
 footer {
     padding: 20px;
     border-top: 1px solid grey;
+}
+
+/* menu solusi */
+.mega-menu {
+    position: absolute; /* Memastikan menu melayang di atas konten lainnya */
+    background-color: white;
+    border: 1px solid #ccc;
+    z-index: 10;
+    width: 1200px; /* Atur lebar mega-menu */
+    height: 300px;
+    display: none; /* Sembunyikan mega-menu secara default */
+    padding: 10px; /* Tambahkan padding di sekitar konten */
+    font-size: 20px;
+    left: 50%; /* Posisi dari kiri */
+    transform: translateX(-50%); /* Menggeser untuk memusatkan */
+    font-family: "lexend", serif;
+    border-radius: 10px;
+}
+
+.nav-item:hover .mega-menu {
+    display: block; /* Tampilkan mega-menu saat hover */
+}
+
+.nav-item {
+    position: relative; /* Untuk mengatur posisi mega-menu relatif terhadap menu item */
+}
+
+.mega-menu-content {
+    display: grid; /* Menggunakan grid untuk layout */
+    grid-template-columns: repeat(3, 1fr); /* Membagi menjadi 3 kolom */
+    gap: 40px; /* Jarak antar item */
+}
+
+.mega-menu-content div {
+    text-align: left; /* Rata tengah untuk setiap item */
+    color: #00204A;
+}
+
+.mega-menu-content p {
+    text-align: left; /* Rata tengah untuk setiap item */
+    color: grey;
+    font-size: 15px;
 }
