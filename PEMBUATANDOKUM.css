@@ -156,7 +156,7 @@ body {
 
 /* footer */
 footer {
-    background-color: #fff;
+    background-color: #36454F;
     
 }
 
@@ -166,11 +166,11 @@ footer {
 
 .col-md-4 {
     color:black;
-    font-weight: bold;
+    font-weight: 800;
 }
 
 .deskrip {
     color: black;
-    font-weight: normal;
-}
+    font-weight: 600;
+} 
 
