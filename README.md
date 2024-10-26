@@ -1,5 +1,5 @@
-# TUBES WEBPRO KELOMPOK 5
-Tugas Besar Kelompok 5 Dengan Tema HUKUM Untuk Mata Kuliah Pemrograman Web.
+# TUBES WEBPRO KELOMPOK 10
+Tugas Besar Kelompok 10 Dengan Tema HUKUM Untuk Mata Kuliah Pemrograman Web.
 
 Anggota Kelompok:  
 1. ADHITYA CAHYADI
@@ -8,4 +8,4 @@ Anggota Kelompok:
 4. BIMA HASEM ALPUGA
 5. FATH AULIA MUHAMMAD
 
-Dibuat oleh kelompok 5
+Dibuat oleh kelompok 10
