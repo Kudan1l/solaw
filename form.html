@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forum Diskusi</title>
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+    <!--  -->
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="form.css">
+    <!-- jQuery Library -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl5+5hb7PElOK6l5eFf5+CGJtjsd/tY/wAI5uAX+HN" crossorigin="anonymous"></script>
+</head>
+
+
+<body >
+  <header>
+    <!-- NAVBAR -->
+      <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="home.html">SOLAW</a>
+
+          <!-- MENU -->
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+              <li class="nav-item" id="list_1">
+                <a class="nav-link" aria-current="page" href="home.html">Beranda</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="form.html">Forum</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Solusi</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Kontak</a>
+              </li>
+            </ul>
+
+            <!-- Search  
+            <form class="d-flex" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>  -->
+
+            <div class="d-flex login align-items-center login">
+              <a class="nav-link me-3" href="#">Sign in</a>
+              <button type="button" class="btn btn-primary">Login</button>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+
+    <div class="container my-4">
+        <h1 class="text-center">Forum Diskusi</h1>
+
+        <!-- Kotak Pencarian -->
+        <div class="mb-4">
+            <input type="text" class="form-control" id="searchBox" placeholder="Cari judul postingan...">
+            <button class="btn btn-primary mt-2" onclick="searchPost()">Cari</button>
+        </div>
+
+
+        <!-- Formulir untuk postingan baru -->
+        <div class="card mb-4">
+            <div class="card-header">Buat Postingan Baru</div>
+            <div class="card-body">
+                <input type="text" class="form-control mb-2" id="postAuthor" placeholder="Nama Anda">
+                <input type="text" class="form-control mb-2" id="postTitle" placeholder="Judul Postingan">
+                <textarea class="form-control mb-2" id="postContent" rows="4" placeholder="Tulis konten postingan Anda di sini..."></textarea>
+                <button class="btn btn-success" onclick="addPost()">Posting</button>
+            </div>
+        </div>
+
+        
+        
+        <!-- Area untuk menampilkan postingan -->
+        <div id="postBox">
+            <!-- Postingan yang ditambahkan akan muncul di sini -->
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+    <script src="java.js"></script>
+</body>
+</html>
