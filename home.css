@@ -69,11 +69,17 @@ body {
     text-align: justify;
 }
 
-.item-dropdown a:hover{
-    text-decoration: underline;
+.login .btn-primary {
+    border: none;
 }
 
-.item-dropdown a:hover + p{
+.login .btn-primary:hover,  .login .btn-primary:focus{
+    color: #fff;
+    background-color: #E45F2B;
+    border: none;
+}
+
+.item-dropdown a:hover{
     text-decoration: underline;
 }
 
