@@ -1,0 +1,158 @@
+body {
+    background-color: #00204A;
+    color: #fff;
+    font-family: "Gabarito", serif;
+}
+
+.navbar {
+    background-color: #00204A;
+}
+
+.navbar-toggler {
+    border: 4px solid #fff;
+    border-radius: 5px;
+}
+
+.navbar-toggler:hover {
+    border-color: #fff;
+}
+
+.navbar-brand, .navbar-brand:hover, .navbar-brand:active{
+    font-family: "Lexend", serif;
+    font-weight: bold;
+    font-size: 40px;
+    color: #fff;
+}
+
+.nav-item {
+    position: relative;
+}
+
+.nav-link {
+    font-size: 20px;
+    color: #fff;
+    padding: 20px;
+}
+
+.nav-link:hover, .nav-link:focus {
+    font-size: 20px;
+    color: #fff;
+}
+
+.mega-menu-wrapper {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    display: none;
+    position: absolute;
+    width: 1200px;
+    top: 100%;
+    transform: translateX(-50%);
+}
+
+.nav-item:hover .mega-menu-wrapper, .mega-menu-wrapper:hover{
+    display: block;
+}
+
+.mega-menu-wrapper .item-dropdown {
+    color: #00204A;
+}
+
+.mega-menu-wrapper .item-dropdown a {
+    color: #00204A;
+    font-size: 25px;
+    text-decoration: none;
+}
+
+.mega-menu-wrapper .item-dropdown p {
+    font-size: 15px;
+    text-align: justify;
+}
+
+.login .btn-primary {
+    border: none;
+}
+
+.login .btn-primary:hover,  .login .btn-primary:focus{
+    color: #fff;
+    background-color: #E45F2B;
+    border: none;
+}
+
+.item-dropdown a:hover{
+    text-decoration: underline;
+}
+
+.btn-primary, .btn-primary:hover{
+    font-size: 20px;
+    background-color: #fff;
+    color: #00204A;   
+}
+
+section {
+    padding-top: 86px;
+    padding-bottom: 30px;
+}
+
+.carousel-item img {
+    height: 300px;
+    object-fit: cover;
+}
+
+.card-img-top {
+    width: 100%;
+    height: auto;
+    max-height: 230px; 
+    object-fit: cover; 
+}
+
+.card-title {
+    color: #00204A;
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.card-text {
+    color: #00204A;
+    font-size: 18px;
+
+}
+
+.card-footer {
+    background-color: #00204A;
+}
+
+.text-body-secondary {
+    color: white;
+}
+
+.content {
+    margin-top: 35px;
+}
+
+footer {
+    padding-top: 30px;
+    background-color: #001F3F;
+}
+
+footer .row {
+    padding-bottom: 30px;
+}
+
+footer .copyright {
+    border-top: 1px solid #fff;
+}
+
+footer small {
+    color: #adb5bd;
+}
+
+footer .about_me p {
+    text-align: justify;
+}
+
+footer i {
+    color: #fff;
+    font-size: 20px;
+    margin-right: 10px;
+}
