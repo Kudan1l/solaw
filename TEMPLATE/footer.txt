@@ -1,0 +1,27 @@
+<footer id="footer">
+    <div class="container">
+      <div class="row justify-content-between">
+          <div class="col-6 about_me">
+              <h5>Tentang Kami</h5>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet dui id est lobortis posuere. Nulla tempor pellentesque sapien, sed semper risus convallis sit amet. Phasellus nulla augue, scelerisque at sapien id, molestie fringilla tellus. Fusce molestie id est ut pulvinar. Morbi feugiat consectetur tellus in sollicitudin. Aenean luctus vehicula ornare. Sed tempus ligula sit amet vestibulum tempor. </p>
+          </div>
+
+          <div class="col-4">
+              <h5>Hubungi Kami</h5>
+              <p><i class="bi bi-geo-alt-fill"></i>Telkom Univeristy</p>
+              <p><i class="bi bi-envelope-fill"></i>solaw@gmail.com</p>
+              <p><i class="bi bi-telephone-fill"></i>+62 1234-5678-912</p>
+
+              <div class="social-media">
+                <a href="https://www.instagram.com" class="social-icon"><i class="bi bi-instagram"></i></a>
+                <a href="https://www.youtube.com" class="social-icon"><i class="bi bi-youtube"></i></a>
+                <a href="https://www.github.com" class="social-icon"><i class="bi bi-github"></i></a>
+            </div>
+          </div>
+      </div>
+
+      <div class="text-center py-2 copyright">
+        <small>&copy; 2024 Kelompok 10.</small>
+      </div>
+    </div>
+</footer>
