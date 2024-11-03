@@ -1,9 +1,3 @@
-body {
-    background-color: #00204A;
-    color: #fff;
-    font-family: "Gabarito", serif;
-}
-
 .navbar {
     background-color: #00204A;
 }
@@ -87,72 +81,4 @@ body {
     font-size: 20px;
     background-color: #fff;
     color: #00204A;   
-}
-
-section {
-    padding-top: 86px;
-    padding-bottom: 30px;
-}
-
-.carousel-item img {
-    height: 300px;
-    object-fit: cover;
-}
-
-.card-img-top {
-    width: 100%;
-    height: auto;
-    max-height: 230px; 
-    object-fit: cover; 
-}
-
-.card-title {
-    color: #00204A;
-    font-size: 30px;
-    font-weight: 600;
-}
-
-.card-text {
-    color: #00204A;
-    font-size: 18px;
-
-}
-
-.card-footer {
-    background-color: #00204A;
-}
-
-.text-body-secondary {
-    color: white;
-}
-
-.content {
-    margin-top: 35px;
-}
-
-footer {
-    padding-top: 30px;
-    background-color: #001F3F;
-}
-
-footer .row {
-    padding-bottom: 30px;
-}
-
-footer .copyright {
-    border-top: 1px solid #fff;
-}
-
-footer small {
-    color: #adb5bd;
-}
-
-footer .about_me p {
-    text-align: justify;
-}
-
-footer i {
-    color: #fff;
-    font-size: 20px;
-    margin-right: 10px;
 }
