@@ -89,58 +89,44 @@ body {
     color: #00204A;   
 }
 
-#profileIcon {
-    padding: 0px; /* Ubah sesuai kebutuhan */
-}
-
-#profileIcon .bi {
-    font-size: 45px;
-}
-
-section {
+.nav-breadcrumb {
     padding-top: 86px;
-    padding-bottom: 30px;
 }
 
-.carousel-item img {
-    height: 300px;
-    object-fit: cover;
+.breadcrumb-item a{
+    text-decoration: none;
 }
 
-.card-img-top {
-    width: 100%;
-    height: auto;
-    max-height: 230px; 
-    object-fit: cover; 
+.breadcrumb-item a:hover{
+    text-decoration: underline;
 }
 
-.card-title {
+.nav-breadcrumb .breadcrumb-item a {
+    color: #E45F2B;
+}
+
+.nav-breadcrumb .breadcrumb-item.active a {
+    color: #fff;
+}
+
+.nav-breadcrumb .breadcrumb-item + .breadcrumb-item::before {
+    color: #fff;
+}
+
+.artikel_page {
+    background-color: #fff;
+    padding: 2rem;
+    border-top-left-radius: 18px;
+    border-top-right-radius: 18px;
     color: #00204A;
-    font-size: 30px;
-    font-weight: 600;
+}
+
+.artikel_page .artikel_content {
     text-align: justify;
 }
 
-.card-text {
-    color: #00204A;
-    font-size: 18px;
-    text-align: justify;
-}
-
-.card-category {
-    color: black;
-}
-
-.card-footer {
-    background-color: #00204A;
-}
-
-.text-body-secondary {
-    color: white;
-}
-
-.content {
-    margin-top: 35px;
+.artikel_page #created_at {
+    margin: 0px;
 }
 
 .kategori_items {
