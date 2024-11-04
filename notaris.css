@@ -117,7 +117,7 @@ h3 {
     margin-left: 10px;
 }
 
-/* tabel kontrak */
+/* tabel kuasa */
 .table {
     border: 10px;
     background-color: #00204A;
@@ -147,4 +147,9 @@ h3 {
     color: #00204A;
     margin: 10px;
     border-radius: 5px;
+}
+
+.text-center .rounded{
+    height: 200px;
+    
 }
