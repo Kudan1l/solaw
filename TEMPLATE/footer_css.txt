@@ -1,26 +1,27 @@
 footer {
-    padding-top: 30px;
-    background-color: #001F3F;
+  padding-top: 30px;
+  background-color: #001f3f;
+  color: #fff;
 }
 
 footer .row {
-    padding-bottom: 30px;
+  padding-bottom: 30px;
 }
 
 footer .copyright {
-    border-top: 1px solid #fff;
+  border-top: 1px solid #fff;
 }
 
 footer small {
-    color: #adb5bd;
+  color: #adb5bd;
 }
 
 footer .about_me p {
-    text-align: justify;
+  text-align: justify;
 }
 
 footer i {
-    color: #fff;
-    font-size: 20px;
-    margin-right: 10px;
+  color: #fff;
+  font-size: 20px;
+  margin-right: 10px;
 }
