@@ -1,0 +1,17 @@
+.breadcrumb,
+.breadcrumb .breadcrumb-item a,
+.breadcrumb-item + .breadcrumb-item::before {
+    color: #00204a;
+    text-decoration: none;
+    margin: 0;
+}
+
+.breadcrumb-item.active {
+    color: #e45f2b;
+}
+
+.card-title,
+.card-text,
+.card-date {
+    color: #00204a;
+}

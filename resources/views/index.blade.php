@@ -74,7 +74,7 @@
                                 @endforeach
                             </ul>
                             <p class="card-text" style="text-align: justify;">{{ $article->description }}</p>
-                            <a href="Artikel_konten_page.html?" class="btn btn-primary">Baca Selengkapnya</a>
+                            <a href="{{ route('article.detail', $article->id) }}" class="btn btn-primary">Baca Selengkapnya</a>
                         </div>
                     </div>
                 @endforeach
