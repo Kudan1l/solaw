@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('articles', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('author');
             $table->longText('description');
             $table->longText('content');
             $table->string('thumbnail_url');
@@ -30,7 +29,6 @@ return new class extends Migration
             $table->id();
             $table->foreignId('article_id')->constrained('articles')->onDelete('cascade');
             $table->foreignId('category_id')->constrained('categories')->onDelete('cascade');
-            $table->timestamps();
             $table->unique(['article_id', 'category_id']); 
         });
     }
@@ -40,6 +38,7 @@ return new class extends Migration
      */
     public function down(): void
     {
+
         Schema::dropIfExists('articles');
         Schema::dropIfExists('categories');
         Schema::dropIfExists('article_category');
