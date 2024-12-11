@@ -12,7 +12,8 @@
     <link rel="stylesheet" href="{{asset('css/login/signup.css')}}">
 </head>
 <body>
-    <form action="{{route('user.save')}}" method="POST">
+    <form action="{{route('signUpPost')}}" method="POST">
+        @csrf
         <div class="signup-container text-center">
             <h1 class="brand-name">SOLAW</h1>
             <h4 class="mb-4">Sign Up</h4>
@@ -30,8 +31,7 @@
             </div>
             @if(session('success'))
                 <div class="alert alert-success">{{ session('success') }}</div>
-            @endif
-            @if(session('error'))
+            @elseif(session('error'))
                 <div class="alert alert-danger">{{ session('error') }}</div>
             @endif
             <button type="submit" class="btn btn-primary w-100">Sign Up</button>

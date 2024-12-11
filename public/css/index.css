@@ -1,0 +1,40 @@
+.carousel-item img {
+    max-height: 350px;
+    object-fit: cover;
+}
+
+.tagline-title {
+    font-size: 5rem;
+    font-weight: bold;
+}
+
+.tagline-img {
+    width: 50%;
+    height: auto;
+}
+
+.btn-primary {
+    background-color: #e45f2b;
+    border: 1px solid #e45f2b;
+}
+
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:focus {
+    background-color: transparent;
+    border: 1px solid #e45f2b;
+    color: #e45f2b;
+}
+
+.articels .card-title,
+.articels .list-group-item,
+.articels .card-text {
+    color: #00204a !important;
+}
+
+.articels .card-img-top {
+    width: 100%;
+    height: auto;
+    max-height: 200px;
+    object-fit: cover;
+}
