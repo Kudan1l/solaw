@@ -4,7 +4,9 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Login;
+use App\Http\Controllers\ConsultantController;
 
+// Home
 Route::get("/", [HomeController::class,"index"])->name("home");
 Route::get("/artikel", [HomeController::class,"articleMenu"])->name("article");
 Route::get("/artikel/{id}", [HomeController::class,"showArticle"])->name("article.detail");
@@ -19,3 +21,8 @@ Route::get('/signup', [Login::class, 'signUpView'])->name('signupview');
 // Route::post('/signup', [Login::class, 'save'])->name('signupupdate');
 
 Route::post('/user/save', [Login::class, 'signUpPost'])->name('signUpPost');
+
+
+// Consultant
+Route::get('/konsultan-hukum', [ConsultantController::class, 'ConsultantsMenu'])->name('consultant');
+Route::get('/konsultan-hukum/{id}', [ConsultantController::class, 'ConsultantDetail'])->name('consultant.detail');

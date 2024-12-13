@@ -9,14 +9,10 @@ use App\Models\Category;
 class HomeController extends Controller
 {
     public function index() {
-        $articles = Article::with('categories')->latest()->take(2)->get();
+        $articles = Article::with('categories')->latest()->take(3)->get();
         // $consultants = Consultant::take(3)->get();
         return view("index", compact("articles"));
     }
-
-    // public function showArticle(Article $articles){
-    //     return view("article.show", compact("articles"));
-    // }
 
     public function articleMenu(Request $request){
         $selectedCategories = $request->input('categories', []);
