@@ -13,21 +13,28 @@
     <link rel="stylesheet" href="{{asset('css/login/forgotpass.css')}}">
 </head>
 <body>
-    <form>
+    <form method="POST" action="{{ route('forgot-password-search') }}">
+        @csrf
         <div class="forgotPass-container text-center">
             <h2 class="brand-name">SELOW</h2>
             <h3 class="mb-4">Forgot Password</h3>
             <h4 class="mb-2">Masukkan alamat email atau nama pengguna yang terhubung ke akun, kami akan mengirimkan email ke akun anda.</h4>
-                <br>
+            @if (session('success'))
+                <!-- <div class="alert alert-success text-center">Account found: {{ session('name') }} ({{ session('email') }}) ({{ session('password') }}).</div> -->
+                <div class="alert alert-success text-center">{{session('success')}}</div>
+            @elseif (session('error'))
+                <div class="alert alert-danger text-center">{{ session('error') }}</div>
+            @endif
+            <br>
                 <div class="mb-3">
                     <label for="email" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="email" placeholder="Enter your email">
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email">
                 </div>
                 <div class="mb-3">
-                    <label for="FN" class="form-label">Full Name</label>
-                    <input type="text" class="form-control" id="FN" placeholder="Enter your full name">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name">
                 </div>
-                <button type="submit" class="btn btn-primary w-100">Search your account</button>
+                <button type="submit" class="btn btn-primary w-100">Send Password Reset Link</button>
                 <div class="text-center">
                     <p class="mb-0">Was the account found? <a href="{{route('login')}}" class="text-primary">Login here</a></p>
                 </div>

@@ -36,3 +36,18 @@ body {
         font-size: 15px;
         font-family: "Lexend", serif;
     }
+    .alert {
+        margin-top: 20px;
+        padding: 15px;
+        border-radius: 5px;
+    }
+    .alert-success {
+        color: #155724;
+        background-color: #d4edda;
+        border-color: #c3e6cb;
+    }
+    .alert-danger {
+        color: #721c24;
+        background-color: #f8d7da;
+        border-color: #f5c6cb;
+    }
