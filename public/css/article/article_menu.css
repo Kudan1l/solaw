@@ -34,16 +34,3 @@
 .form-check {
     font-size: 1.2rem;
 }
-
-.btn-primary {
-    background-color: #e45f2b;
-    border: 1px solid #e45f2b;
-}
-
-.btn-primary:hover,
-.btn-primary:active,
-.btn-primary:focus {
-    background-color: transparent;
-    border: 1px solid #e45f2b;
-    color: #e45f2b;
-}

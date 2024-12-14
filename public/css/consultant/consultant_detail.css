@@ -1,0 +1,21 @@
+.breadcrumb,
+.breadcrumb .breadcrumb-item a,
+.breadcrumb-item + .breadcrumb-item::before {
+    color: #00204a;
+    text-decoration: none;
+    margin: 0;
+}
+
+.breadcrumb-item.active,
+.card-rating .bi {
+    color: #e45f2b;
+}
+
+.card {
+    color: #00204a;
+}
+
+.card-experience .bi,
+.card-detail .bi {
+    color: #004ab3;
+}

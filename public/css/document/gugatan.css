@@ -1,0 +1,159 @@
+body {
+    background-color: #00204A;
+    color: #fff;
+    font-family: "Lexend", serif;
+}
+
+
+.navbar {
+    background-color: #00204A;
+}
+
+.nav-item {
+    position: relative;
+}
+
+.nav-link {
+    font-size: 20px;
+    color: #fff;
+    padding: 20px;
+}
+
+.navbar-toggler {
+    border: 4px solid white; /* Atur ketebalan dan warna border */
+    border-radius: 5px; /* Atur sudut melengkung jika diperlukan */
+}
+
+
+
+.navbar-brand, .navbar-brand:hover, .navbar-brand:active{
+    font-family: "Lexend", serif;
+    font-weight: bold;
+    font-size: 40px;
+    color: #fff;
+}
+
+
+
+.nav-item {
+    position: relative;
+}
+
+.nav-link {
+    font-size: 20px;
+    color: #fff;
+    padding: 20px;
+}
+
+.nav-link:hover, .nav-link:focus {
+    font-size: 20px;
+    color: #fff;
+}
+
+.mega-menu-wrapper {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    display: none;
+    position: absolute;
+    width: 1100px;
+    top: 100%;
+    transform: translateX(-50%);
+}
+
+.nav-item:hover .mega-menu-wrapper, .mega-menu-wrapper:hover{
+    display: block;
+}
+
+.mega-menu-wrapper .item-dropdown {
+    color: #00204A;
+}
+
+.mega-menu-wrapper .item-dropdown a {
+    color: #00204A;
+    font-size: 25px;
+    text-decoration: none;
+}
+
+.mega-menu-wrapper .item-dropdown p {
+    font-size: 15px;
+    text-align: justify;
+}
+
+.item-dropdown a:hover{
+    text-decoration: underline;
+}
+
+.item-dropdown a:hover + p{
+    text-decoration: underline;
+}
+
+.btn-primary, .btn-primary:hover{
+    font-size: 20px;
+    background-color: #fff;
+    color: #00204A;   
+}
+
+
+
+.deskrip {
+    color: black;
+    font-weight: 600;
+} 
+
+
+
+.rounded {
+    margin-top: 150px;
+}
+
+.text-center h5 {
+    font-family: "Lexend", serif;
+    margin-top: 10px;
+}
+
+h3 {
+    
+    margin-left: 10px;
+}
+
+/* tabel kuasa */
+.table {
+    border: 10px;
+    background-color: #00204A;
+    
+}
+
+.custom-table {
+    background-color: #00204A;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.no-border {
+    border-right: none;
+    
+}
+
+/* tombol template */
+.templateKontrak {
+    color: white;
+    background-color: goldenrod;
+    border-radius: 5px;
+    margin: 10px;
+}
+
+/* tombol back */
+.balik {
+    width: 100px;
+    font-size: large;
+    background-color: white;
+    color: #00204A;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+.text-center .rounded{
+    height: 200px;
+    
+}

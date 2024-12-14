@@ -24,13 +24,16 @@
         </nav>
         <div class="card content my-3">
             <div class="card-body">
-                <p class="m-0 card-date" style="text-align: right;">Published on {{ $articles->created_at->format('d F Y') }}</p>
-                <h1 class="card-title">{{$articles->title}}</h1>
-                <div class="categories mb-3">
-                    @foreach ($articles->categories as $category)
-                        <span class="badge bg-primary">{{ $category->name }}</span>
-                    @endforeach
+                <div class="card-info d-flex flex-row justify-content-between">
+                    <div class="categories mb-3">
+                        @foreach ($articles->categories as $category)
+                            <span class="badge bg-primary">{{ $category->name }}</span>
+                        @endforeach
+                    </div>
+                    <p class="m-0 card-date" style="text-align: right;">Published on {{ $articles->created_at->format('d F Y') }}</p>
                 </div>
+                
+                <h1 class="card-title">{{$articles->title}}</h1>
                 <p class="card-text" style="text-align: justify;">
                     {{$articles->content}}
                 </p>

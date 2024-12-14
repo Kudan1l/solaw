@@ -10,6 +10,10 @@ use Illuminate\Support\Facades\Hash;
 class DatabaseSeeder extends Seeder
 {
     public function run(){
+        $this->call([
+            ConsultantSeeder::class,
+        ]);
+
         DB::table("articles")->insert([
             [
                 "title" => "Melindungi Hak Kepemilikan dan Pemanfaatan",
