@@ -18,21 +18,25 @@
             <h1 class="brand-name">SOLAW</h1>
             <h4 class="mb-4">Sign Up</h4>
             <div class="mb-3">
-                <label for="name" class="form-label">Full Name</label>
-                <input type="text" class="form-control" id="name" name="name" placeholder="Enter your full name" required>
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" required>
+                @error('name')
+                    <span class="text-danger">{{ 'Nama harus berupa huruf' }}</span>
+                @enderror
             </div>
             <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
                 <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
-            </div>
+                @error('email')
+                    <span class="text-danger">{{ 'Email sudah digunakan' }}</span>
+                @enderror
+            </div>  
             <div class="mb-3">
                 <label for="password" class="form-label">Password</label>
                 <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password" required>
             </div>
             @if(session('success'))
-                <div class="alert alert-success">{{ session('success') }}</div>
-            @elseif(session('error'))
-                <div class="alert alert-danger">{{ session('error') }}</div>
+             <div class="alert alert-success">{{ session('success') }}</div>
             @endif
             <button type="submit" class="btn btn-primary w-100">Sign Up</button>
             <div class="text-center mt-3">

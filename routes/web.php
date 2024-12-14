@@ -16,6 +16,7 @@ Route::get('/forgotpass', [Login::class, 'forgotview'])->name('forgotview');
 Route::post('/forgotpass', [Login::class, 'update'])->name('forgotupdate');
 
 Route::get('/signup', [Login::class, 'signUpView'])->name('signupview');
-// Route::post('/signup', [Login::class, 'save'])->name('signupupdate');
-
 Route::post('/user/save', [Login::class, 'signUpPost'])->name('signUpPost');
+
+Route::get('/forgot-password', [Login::class, 'forgotview'])->name('forgot-password-view');
+Route::post('/forgot-password', [Login::class, 'searchAccount'])->name('forgot-password-search');
