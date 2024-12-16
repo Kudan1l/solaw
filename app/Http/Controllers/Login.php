@@ -91,12 +91,13 @@ class Login extends Controller
         $user = User::where('email', $email)->where('name', $Name)->first();
 
         if ($user) {
-            return redirect()->back()->with('success', 'Akun di temukan. Verifikasi telah di kirim ke alamat email');
-            // return redirect()->route('ccount.found')->with([
-            //     'email' => $user->email,
-            //     'name' => $user->name,
-            //     'password' => $rawPassword,
-            // ]);
+            $hashedPassword = $user->password;
+
+            return redirect()->back()->with([
+            'success' => 'Akun di temukan,verifikasi telah di kirim ke alamat email', 
+            'email' => $user->email,
+            'name' => $user->name,
+        ]);
         } else {
             return redirect()->back()->with('error', 'Akun tidak ditemukan. Silakan periksa email dan nama Anda.');
         }

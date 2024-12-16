@@ -18,14 +18,12 @@
         <div class="forgotPass-container text-center">
             <h2 class="brand-name">SELOW</h2>
             <h3 class="mb-4">Forgot Password</h3>
-            <h4 class="mb-2">Masukkan alamat email atau nama pengguna yang terhubung ke akun, kami akan mengirimkan email ke akun anda.</h4>
+            
             @if (session('success'))
-                <!-- <div class="alert alert-success text-center">Account found: {{ session('name') }} ({{ session('email') }}) ({{ session('password') }}).</div> -->
-                <div class="alert alert-success text-center">{{session('success')}}</div>
+                <div class="alert alert-success text-center">{{session('success')}} <strong>{{ session('email') }}</strong></div>
             @elseif (session('error'))
                 <div class="alert alert-danger text-center">{{ session('error') }}</div>
-            @endif
-            <br>
+                <br>
                 <div class="mb-3">
                     <label for="email" class="form-label">Email</label>
                     <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email">
@@ -34,7 +32,20 @@
                     <label for="name" class="form-label">Name</label>
                     <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name">
                 </div>
-                <button type="submit" class="btn btn-primary w-100">Send Password Reset Link</button>
+                <button type="submit" class="btn btn-primary w-100">Search Your Account</button>
+            @else
+                <h4 class="mb-2">Masukkan alamat email atau nama pengguna yang terhubung ke akun, kami akan mengirimkan email ke akun anda.</h4>
+                <br>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email">
+                </div>
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name">
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Search Your Account</button>
+            @endif
                 <div class="text-center">
                     <p class="mb-0">Was the account found? <a href="{{route('login')}}" class="text-primary">Login here</a></p>
                 </div>
