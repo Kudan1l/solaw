@@ -21,24 +21,15 @@ class Login extends Controller
         return view('login.signup');
     }
 
-    public function update(Request $request, $id){
-    }
 
     public function signUpPost(Request $request)
     {
         // Validasi data input
         $request->validate([
-            'name' => 'required|string|max:255',
+            'name' => 'required|alpha|max:50',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|string|min:6',
         ]);
-
-        $existingUser = User::where('email', $request->email)->first();
-
-        if ($existingUser) {
-            // Jika email sudah ada, kembalikan dengan pesan error
-            return redirect()->back()->with('error', 'Email sudah digunakan');
-        }
 
         // Buat instance User baru
         $user = new User();
@@ -75,10 +66,36 @@ class Login extends Controller
         $user = User::where('email', $request->email)->first();
 
         if ($user && Hash::check($request->password, $user->password)) {
-            // Jika cocok, login berhasil
+            
             return redirect('/')->with('success', 'Login Berhasil');
         }
 
         return back()->with('error', 'Email atau password salah.');
+    }
+
+    public function searchAccount(Request $request)
+    {
+        // Validasi input
+        $request->validate([
+            'email' => 'required|email',
+            'name' => 'required|string|max:255',
+        ]);
+
+        // Ambil input dari form
+        $email = $request->input('email');
+        $Name = $request->input('name');
+
+        $user = User::where('email', $email)->where('name', $Name)->first();
+
+        if ($user) {
+            return redirect()->back()->with('success', 'Akun di temukan. Verifikasi telah di kirim ke alamat email');
+            // return redirect()->route('ccount.found')->with([
+            //     'email' => $user->email,
+            //     'name' => $user->name,
+            //     'password' => $rawPassword,
+            // ]);
+        } else {
+            return redirect()->back()->with('error', 'Akun tidak ditemukan. Silakan periksa email dan nama Anda.');
+        }
     }
 }

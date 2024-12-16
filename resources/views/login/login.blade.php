@@ -30,7 +30,7 @@
                 </div>
                 @if (session('error'))
                     <div class="alert alert-danger" role="alert">{{ session('error') }}</div>
-                @endif 
+                @endif
                 <button type="submit" class="btn btn-primary w-100">Login</button>
                 <div class="text-center mt-3">
                     <a href="{{route('forgotview')}}" class="text-primary">Forgot Password?</a>

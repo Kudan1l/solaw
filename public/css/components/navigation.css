@@ -1,6 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&family=Lexend:wght@100..900&display=swap");
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+<<<<<<< HEAD
 
+=======
+>>>>>>> 9d13017b7d102933c3a705ad7cd5066351e998cb
 body {
     padding: 86px 0px 0px 0px;
     margin: 0;
@@ -126,4 +129,18 @@ footer i {
     font-size: 20px;
     margin-right: 10px;
     color: #fff;
+}
+
+.btn-primary1 {
+    background-color: #e45f2b;
+    border: 1px solid #e45f2b !important;
+    color: #fff;
+}
+
+.btn-primary1:hover,
+.btn-primary1:active,
+.btn-primary1:focus {
+    background-color: transparent !important;
+    border: 1px solid #e45f2b;
+    color: #e45f2b !important;
 }

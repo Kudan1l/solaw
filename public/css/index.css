@@ -13,28 +13,8 @@
     height: auto;
 }
 
-.btn-primary {
-    background-color: #e45f2b;
-    border: 1px solid #e45f2b;
-}
-
-.btn-primary:hover,
-.btn-primary:active,
-.btn-primary:focus {
-    background-color: transparent;
-    border: 1px solid #e45f2b;
-    color: #e45f2b;
-}
-
-.articels .card-title,
-.articels .list-group-item,
-.articels .card-text {
+.articles .card-title,
+.articles .list-group-item,
+.articles .card-text {
     color: #00204a !important;
-}
-
-.articels .card-img-top {
-    width: 100%;
-    height: auto;
-    max-height: 200px;
-    object-fit: cover;
 }
