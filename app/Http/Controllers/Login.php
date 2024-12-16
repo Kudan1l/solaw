@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 
 class Login extends Controller
@@ -26,9 +27,9 @@ class Login extends Controller
     {
         // Validasi data input
         $request->validate([
-            'name' => 'required|alpha|max:50',
+            'name' => ['required', 'regex:/^[a-zA-Z\s]+$/', 'max:50'],
             'email' => 'required|email|unique:users,email',
-            'password' => 'required|string|min:6',
+            'password' => 'required|min:6',
         ]);
 
         // Buat instance User baru
@@ -37,6 +38,8 @@ class Login extends Controller
         $user->email = $request->email;
         $user->password = Hash::make($request->password); // Gunakan hashing dengan Hash
         $user->save(); // Simpan data ke tabel users
+
+        // Auth::login($user);
 
         // Redirect kembali dengan pesan sukses
         return redirect()->back()->with('success', 'User berhasil disimpan.');
@@ -57,21 +60,21 @@ class Login extends Controller
     //     return redirect('/login')->with('success', 'Akun Berhasil Dibuat');
     // }
 
-    function login(Request $request) {
-        $request->validate([
-            'email' => 'required',
-            'password' => 'required',
-        ]);
+    // function login (Request $request) {
+    //     $request->validate([
+    //         'email' => 'required',
+    //         'password' => 'required',
+    //     ]);
 
-        $user = User::where('email', $request->email)->first();
+    //     $user = User::where('email', $request->email)->first();
 
-        if ($user && Hash::check($request->password, $user->password)) {
+    //     if ($user && Hash::check($request->password, $user->password)) {
             
-            return redirect('/')->with('success', 'Login Berhasil');
-        }
+    //         return redirect('/')->with('success', 'Login Berhasil');
+    //     }
 
-        return back()->with('error', 'Email atau password salah.');
-    }
+    //     return back()->with('error', 'Email atau password salah.');
+    // }
 
     public function searchAccount(Request $request)
     {
@@ -97,5 +100,26 @@ class Login extends Controller
         } else {
             return redirect()->back()->with('error', 'Akun tidak ditemukan. Silakan periksa email dan nama Anda.');
         }
+    }
+
+    public function authenticate (Request $request)
+    {
+        $user = $request->validate([
+            'email' => ['required', 'email'],
+            'password' => ['required'],
+        ]);
+ 
+        if (Auth::attempt($user)) {
+            $request->session()->regenerate();
+            return redirect()->intended('/');
+        }
+ 
+        return back();
+    }
+
+    public function logout() {
+        Auth::logout();
+
+        return redirect('login')->with('success', 'You have been logged out.');
     }
 }

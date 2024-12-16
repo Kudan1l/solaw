@@ -6,16 +6,33 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Login;
 use App\Http\Controllers\ConsultantController;
+
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ThreadController;
 
+use App\Http\Middleware\checkLogin;
+
 // Home
 Route::get("/", [HomeController::class,"index"])->name("home");
-Route::get("/artikel", [HomeController::class,"articleMenu"])->name("article");
-Route::get("/artikel/{id}", [HomeController::class,"showArticle"])->name("article.detail");
+
+
+// Route::get('/login', [Login::class, 'index'])->name('login');
+// Route::post('/loginPost', [Login::class, 'login'])->name('loginPost');
+
+Route::middleware(['auth', 'role:user'])->group(function() {
+    Route::get("/artikel", [HomeController::class,"articleMenu"])->name("article");
+    Route::get("/artikel/{id}", [HomeController::class,"showArticle"])->name("article.detail");
+});
+
+Route::get('/dashboard', function() {
+    $user = Auth::user();
+    return view('dashboard_user', ['user' => $user]);
+})->name('dashboard')->middleware(['auth', 'role:admin']);
 
 Route::get('/login', [Login::class, 'index'])->name('login');
-Route::post('/loginPost', [Login::class, 'login'])->name('loginPost');
+Route::post('/login', [Login::class, 'authenticate']);
+Route::post('/logout', [Login::class, 'logout'])->name('logout');
+
 
 Route::get('/forgotpass', [Login::class, 'forgotview'])->name('forgotview');
 Route::post('/forgotpass', [Login::class, 'update'])->name('forgotupdate');

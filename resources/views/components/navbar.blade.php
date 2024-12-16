@@ -65,8 +65,18 @@
             </ul>
 
             <div class="d-flex login align-items-center">
-              <a id="signupLink" class="nav-link" href=" {{ route('signupview') }} ">Sign up</a>
-              <a id="loginLink" type="button" class="btn btn-login" href="{{ route('login') }}">Login</a>
+                @auth
+                    <a id="signupLink" class="nav-link" href=" {{ route('dashboard') }} ">{{ Auth::user()->name }}</a>
+                    <form action="{{ route('logout') }}" method='POST'>
+                        @csrf
+                        <button type='submit' class="btn btn-danger">Logout</button>
+                    </form>
+                @else
+                    <a id="signupLink" class="nav-link" href=" {{ route('signupview') }} ">Sign up</a>
+                    <a id="loginLink" type="button" class="btn btn-login" href="{{ route('login') }}">Login</a>
+                @endauth
+              <!-- <a id="signupLink" class="nav-link" href=" {{ route('signupview') }} ">Sign up</a>
+              <a id="loginLink" type="button" class="btn btn-login" href="{{ route('login') }}">Login</a> -->
               <!-- <a id="profileIcon" href="#" class="nav-link">
                 <i class="bi bi-person-circle"></i>
               </a> -->

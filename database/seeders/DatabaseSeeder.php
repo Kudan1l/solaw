@@ -92,10 +92,20 @@ Dengan adanya perlindungan hukum yang baik, transaksi perbankan yang melibatkan 
         ]);  
 
         DB::table('users')->insert([
-            'name' => 'Aditya Cahyadi',
-            'email' => 'adit@gmail.com',
-            'password' => Hash::make('ganteng'),
-        ]);
+            [
+                'name' => 'Aditya Cahyadi',
+                'email' => 'adit@gmail.com',
+                'password' => Hash::make('ganteng'),
+                'role' => 'user', 
+                // Tidak perlu menambahkan 'role' karena sudah default
+            ],
+            [
+                'name' => 'admin',
+                'email' => 'admin@gmail.com',
+                'password' => Hash::make('admin'),
+                'role' => 'admin', // Role 'admin' harus disebutkan secara eksplisit
+            ],
+        ]);        
     }
         
 }
