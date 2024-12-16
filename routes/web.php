@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Login;
 use App\Http\Controllers\ConsultantController;
+use App\Http\Controllers\CommentController;
+use App\Http\Controllers\ThreadController;
 
 // Home
 Route::get("/", [HomeController::class,"index"])->name("home");
@@ -20,7 +22,6 @@ Route::post('/forgotpass', [Login::class, 'update'])->name('forgotupdate');
 
 Route::get('/signup', [Login::class, 'signUpView'])->name('signupview');
 Route::post('/user/save', [Login::class, 'signUpPost'])->name('signUpPost');
-
 
 // route pembuatan dokumen
 Route::get('/PEMBUATANDOKUM', [DocumentController::class, 'PEMBUATANDOKUM'])->name('PEMBUATANDOKUM');
@@ -59,3 +60,12 @@ Route::get('/konsultan-hukum/{id}', [ConsultantController::class, 'ConsultantDet
 Route::get('/forgot-password', [Login::class, 'forgotview'])->name('forgot-password-view');
 Route::post('/forgot-password', [Login::class, 'searchAccount'])->name('forgot-password-search');
 
+// Thread Routes
+Route::get('/threads', [ThreadController::class, 'index'])->name('threads');
+Route::get('/threads/create', [ThreadController::class, 'create'])->name('threads.create');
+Route::post('/threads', [ThreadController::class, 'store'])->name('threads.store');
+Route::get('/threads/{thread}', [ThreadController::class, 'show'])->name('threads.show');
+Route::post('/threads/search', [ThreadController::class, 'search'])->name('threads.search');
+
+// Comment Routes
+Route::post('/comments', [CommentController::class, 'store'])->name('comment.store');

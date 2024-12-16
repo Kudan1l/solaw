@@ -19,7 +19,7 @@
                     <a class="nav-link" href="{{ route('home') }}">Beranda</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="">Forum</a>
+                    <a class="nav-link" href="{{ route('threads') }}">Forum</a>
                 </li>
 
                 <li class="nav-item">
