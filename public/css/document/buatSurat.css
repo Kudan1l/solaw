@@ -1,0 +1,84 @@
+body {
+    font-family: "Lexend", serif;
+    font-size: 16px;
+    background-color: #00204A;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+h1 {
+    text-align: center;
+}
+
+.container {
+    background-color: #F5F5F7;
+    padding: 30px; /* Menambahkan padding lebih besar */
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* Menambahkan efek shadow lebih kuat */
+    width: 100%;
+    max-width: 900px; /* Lebar form lebih besar */
+    min-height: 500px; /* Menetapkan tinggi minimal lebih besar */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Menambahkan jarak antar elemen form */
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px; /* Menambahkan jarak antar label dan input */
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+    font-size: 1.1em; /* Menambahkan ukuran font label lebih besar */
+}
+
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 12px; /* Memperbesar padding untuk input dan textarea */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 18px; /* Memperbesar font ukuran input dan textarea */
+    box-sizing: border-box; /* Menghindari overflow padding */
+}
+
+textarea {
+    resize: vertical; /* Memungkinkan textarea untuk diubah ukurannya secara vertikal */
+}
+
+button {
+    padding: 12px 20px; /* Memperbesar padding tombol */
+    background-color: goldenrod;
+    color: white;
+    border: none ;
+    border-radius: 4px;
+    font-size: 18px; /* Menambahkan ukuran font tombol lebih besar */
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%;
+}
+
+button:hover {
+    background-color: white;
+    color: goldenrod;
+    
+}
+
+/* dropdown */
+.dropdown-menu {
+    min-width: 100%; /* Membuat lebar dropdown sama dengan lebar tombol */
+    text-align: center;
+}

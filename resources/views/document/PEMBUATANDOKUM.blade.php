@@ -14,75 +14,11 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="{{asset('css/document/PEMBUATANDOKUM.css')}}">
+    <link rel="stylesheet" href="{{asset('css/components/navigation.css')}}">
 </head>
 <body>
-    <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top ">
-        <div class="container">
-            <a class="navbar-brand" href="#">SoLAW</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-  
-            <!-- MENU -->
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                  <a class="nav-link" aria-current="page" href="home.html">Beranda</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Forum</a>
-                </li>
-  
-                <li class="nav-item">
-                  <a class="nav-link dropdown-toggle" href="#">
-                    Solusi
-                  </a>
-                    <div class="mega-menu-wrapper">
-                      <div class="row">
-                        <div class="col item-dropdown">
-                          <a href="#">Prosedur Hukum</a>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris et dapibus orci, at tincidunt ipsum. Aliquam id sem a enim.</p>
-                        </div>
-                        <div class="col item-dropdown">
-                          <a href="PEMBUATANDOKUM.html">Konsultasi Surat Hukum</a>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris et dapibus orci, at tincidunt ipsum. Aliquam id sem a enim.</p>
-                        </div>
-                        <div class="col item-dropdown">
-                          <a href="#">Izin Usaha</a>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris et dapibus orci, at tincidunt ipsum. Aliquam id sem a enim.</p>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col item-dropdown">
-                          <a href="#">Page</a>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris et dapibus orci, at tincidunt ipsum. Aliquam id sem a enim.</p>
-                        </div>
-                        <div class="col item-dropdown">
-                          <a href="#">Page</a>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris et dapibus orci, at tincidunt ipsum. Aliquam id sem a enim.</p>
-                        </div>
-                        <div class="col item-dropdown">
-                          <a href="#">Page</a>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris et dapibus orci, at tincidunt ipsum. Aliquam id sem a enim.</p>
-                        </div>
-                      </div>
-                    </div>
-                </li>
-  
-                <li class="nav-item">
-                  <a class="nav-link" href="#footer">Kontak</a>
-                </li>
-              </ul>
-  
-              <div class="d-flex login align-items-center login">
-                <a class="nav-link me-3" href="#">Sign up</a>
-                <button type="button" class="btn btn-primary">Login</button>
-              </div>
-            </div>
-          </div>
-        </nav>
-        
+    
+    <x-navbar></x-navbar>
     
     <!--judul-->
     <div class="container">
@@ -97,39 +33,7 @@
             Notaris, Perjanjian, hingga Gugatan, dan Pengadilan.
         </p>
     </div>
-
-    <!--button lihat dokumen-->
-    <!-- <div class="d-grid gap-2 col-6 mx-auto">
-        <button class="btn1 btn-primary" type="button">Lihat Prosedur Pembuatan Dokumen</button>
-        
-      </div> -->
     
-    <!-- Scrolling container
-    <div class="scrolling-container">
-        <div class="scrolling-content">
-            <div>
-                <img src="ROHMAN.JPG" class="scrolling-image" alt="...">
-                <img src="AGUNG.JPG" class="scrolling-image" alt="...">
-                <img src="proxi/IMG_0003.JPG" class="scrolling-image" alt="...">
-                <img src="proxi/DSC04608.JPG" class="scrolling-image" alt="...">
-                <img src="proxi/IMG_7740.JPG" class="scrolling-image" alt="...">
-                <img src="proxi/IMG_7961.JPG" class="scrolling-image" alt="...">
-                <img src="proxi/DSC04609.JPG" class="scrolling-image" alt="...">
-                <img src="proxi/PETH.JPG" class="scrolling-image" alt="...">
-
-                <img src="ROHMAN.JPG" class="scrolling-image" alt="...">
-                <img src="AGUNG.JPG" class="scrolling-image" alt="...">
-                <img src="proxi/IMG_0003.JPG" class="scrolling-image" alt="...">
-                <img src="proxi/DSC04608.JPG" class="scrolling-image" alt="...">
-                <img src="proxi/IMG_7740.JPG" class="scrolling-image" alt="...">
-                <img src="proxi/IMG_7961.JPG" class="scrolling-image" alt="...">
-                <img src="proxi/DSC04609.JPG" class="scrolling-image" alt="...">
-                <img src="proxi/PETH.JPG" class="scrolling-image" alt="...">
-              
-            </div>
-        </div>
-    </div> -->
-
     <!--isi page dokumen-->
     <div class="container-fluid"> <!-- Menggunakan container-fluid untuk memenuhi lebar penuh -->
         <div class="dokumkontrak">
@@ -252,47 +156,7 @@
     </div>
 
     <!--footer-->
-    <footer>
-        <div class="container">
-            <center>    
-                <p class="copyright">&copy; KELOMPOK 5</p>
-                
-            </center>
-            <div class="row">
-                <div class="col-md-4">
-                        PROFIL
-                    <p class="deskrip">
-                        Kami mahasiswa Telkom University, </br>
-                        meng-presentasikan hasil dari pengembangan website Hukum kami, SoLAW.
-                    </p>
-                </div>
-
-                <div class="col-md-4">
-                    PROFIL
-                <p class="deskrip">
-                    Kami mahasiswa Telkom University, </br>
-                    meng-presentasikan hasil dari pengembangan website Hukum kami, SoLAW.
-                </p>
-            </div>
-
-            <div class="row">
-                <div class="col-md-4">
-                        PROFIL
-                    <p class="deskrip">
-                        Kami mahasiswa Telkom University, </br>
-                        meng-presentasikan hasil dari pengembangan website Hukum kami, SoLAW.
-                    </p>
-                </div>
-
-                <div class="col-md-4">
-                    PROFIL
-                <p class="deskrip">
-                    Kami mahasiswa Telkom University, </br>
-                    meng-presentasikan hasil dari pengembangan website Hukum kami, SoLAW.
-                </p>
-            </div>
-        </div>
-    </footer>
+    <x-footer></x-footer>
     
     
     
