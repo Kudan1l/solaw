@@ -3,7 +3,7 @@
         <div class="footer-content d-flex gap-5 mb-3">
             <div class="about w-100">
             <h5>Tentang Kami</h5>
-                <p>Solution of Law (SOLAW) adalah platform inovatif yang bertujuan untuk mempermudah akses masyarakat terhadap layanan hukum. Kami memahami bahwa proses hukum sering kali rumit dan memakan waktu, sehingga kami hadir untuk memberikan solusi yang efisien dan transparan.</p>
+                <p>Solution of Law (SoLAW) adalah platform inovatif yang bertujuan untuk mempermudah akses masyarakat terhadap layanan hukum. Kami memahami bahwa proses hukum sering kali rumit dan memakan waktu, sehingga kami hadir untuk memberikan solusi yang efisien dan transparan.</p>
             </div>
             <div class="contac w-50">
             <h5>Hubungi Kami</h5>

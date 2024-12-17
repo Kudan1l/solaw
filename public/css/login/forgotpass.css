@@ -1,0 +1,55 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #00204A;
+    margin: 0;
+    padding: 1rem;
+    }
+    .forgotPass-container{
+        max-width: 400px;
+    padding: 2rem;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    border-radius: 8px;
+    }
+    .brand-name{
+        font-weight: bold;
+        color: #00204A;
+        font-size: 3rem;
+        align-items: baseline;
+        font-family: "Gabarito", serif;
+    }
+    .mb-4{
+        align-items: center;
+        font-size: 2rem;
+        color: #00204A; 
+        font-family: "Gabarito", serif;
+    }
+    .mb-2{
+        font-size:  15px;
+    }
+    .mb-3{
+        text-align: left;
+        color: #00204A;
+        font-size: 15px;
+        font-family: "Lexend", serif;
+    }
+    .alert {
+        margin-top: 20px;
+        padding: 15px;
+        border-radius: 5px;
+    }
+    .alert-success {
+        color: #155724;
+        background-color: #d4edda;
+        border-color: #c3e6cb;
+        padding: 5px 10px;
+        line-height: 1.5; 
+    }
+    .alert-danger {
+        color: #721c24;
+        background-color: #f8d7da;
+        border-color: #f5c6cb;
+    }

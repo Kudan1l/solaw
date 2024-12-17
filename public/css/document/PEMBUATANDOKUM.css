@@ -1,0 +1,63 @@
+/* judul */
+
+.judul {
+    text-align: center;
+    margin-top: 100px;
+    color: goldenrod;
+}
+
+.judul2 {
+    font-size: 25px;
+    color: #00204a;
+}
+
+.judul3 {
+    font-size: 30px;
+    color: goldenrod;
+    margin-bottom: 10px;
+}
+
+.deskripsi {
+    text-align: center;
+    font-size: 15px;
+}
+
+/* button lihat dokumen */
+.btn1 {
+    margin-top: 40px;
+    background-color: orange;
+    margin-bottom: 30px;
+    border-radius: 5px;
+}
+
+/* isi dokumen */
+
+.dokumkontrak .col-md-4 {
+    /* padding-left: 5px;
+    padding-right: 5px; */
+    display: flex;
+    align-items: center;
+}
+.dokumkontrak .card {
+    margin-top: 30px;
+    border: 0;
+    margin-left: 20px;
+}
+.card {
+    background-color: transparent;
+}
+
+.card-img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
+.card-title {
+    color: #00204a;
+}
+
+.card-text {
+    color: #00204a;
+
+    text-align: justify;
+}

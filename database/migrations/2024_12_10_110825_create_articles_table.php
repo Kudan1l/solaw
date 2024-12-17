@@ -17,6 +17,7 @@ return new class extends Migration
             $table->longText('description');
             $table->longText('content');
             $table->string('thumbnail_url');
+            $table->enum('status', ['draft', 'publish'])->default('draft');
             $table->timestamps();
         });
 
@@ -38,7 +39,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-
         Schema::dropIfExists('articles');
         Schema::dropIfExists('categories');
         Schema::dropIfExists('article_category');

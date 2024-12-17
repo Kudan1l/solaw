@@ -1,0 +1,20 @@
+.carousel-item img {
+    max-height: 350px;
+    object-fit: cover;
+}
+
+.tagline-title {
+    font-size: 5rem;
+    font-weight: bold;
+}
+
+.tagline-img {
+    width: 50%;
+    height: auto;
+}
+
+.articles .card-title,
+.articles .list-group-item,
+.articles .card-text {
+    color: #00204a !important;
+}

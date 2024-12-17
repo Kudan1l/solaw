@@ -1,0 +1,36 @@
+.breadcrumb,
+.breadcrumb .breadcrumb-item a,
+.breadcrumb-item + .breadcrumb-item::before {
+    color: #00204a;
+    text-decoration: none;
+    margin: 0;
+}
+
+.breadcrumb-item.active {
+    color: #e45f2b;
+}
+
+.article-lists .card,
+.form-check-input {
+    cursor: pointer;
+}
+
+.card-title,
+.card-text,
+.form-check-label {
+    color: #00204a;
+}
+
+.card-img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+}
+
+.main-category {
+    width: 30%;
+}
+
+.form-check {
+    font-size: 1.2rem;
+}

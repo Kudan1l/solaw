@@ -1,0 +1,97 @@
+
+
+.deskrip {
+    color: black;
+    font-weight: 600;
+} 
+
+.text-center h5 {
+    font-family: "Lexend", serif;
+    margin-top: 10px;
+    
+}
+
+.text-center img {
+    width: 200px;        /* Ukuran lebar gambar */
+    height: 200px;       /* Ukuran tinggi gambar */
+    object-fit: cover; /* Menjaga rasio aspek gambar tanpa dipotong */
+    margin-top: 3rem;
+}
+
+h3 {
+    
+    margin-left: 10px;
+}
+
+/* tabel kuasa */
+.table {
+    border: 10px;
+    background-color: #00204A;
+    filter: drop-shadow(1px 1px 10px grey);
+}
+
+.custom-table {
+    background-color: #00204A;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.no-border {
+    border-right: none;
+    
+}
+
+/* tombol template */
+.templateKontrak {
+    color: white;
+    background-color: goldenrod;
+    border-radius: 5px;
+    margin: 10px;
+}
+
+/* tombol back dan buat surat*/
+.back {
+    display: flex;
+    justify-content: center;  /* Menempatkan tombol di tengah */
+    gap: 20px;  /* Memberikan jarak antar tombol */
+    margin-top: 20px;  /* Memberikan jarak di atas */
+    margin-bottom: 20px;
+}
+
+/* Gaya tombol 'balik' */
+.balik, .buat {
+    padding: 25px 35px;  /* Ukuran tombol yang lebih besar */
+    font-size: 16px;  /* Ukuran font tombol */
+    border: none;  /* Menghilangkan border default */
+    border-radius: 5px;  /* Membuat sudut tombol lebih melengkung */
+    cursor: pointer;  /* Menampilkan cursor pointer saat hover */
+    transition: all 0.3s ease;  /* Transisi halus saat hover */
+}
+
+/* Gaya khusus untuk tombol 'balik' */
+.balik {
+    background-color: #6c757d;  /* Warna latar belakang tombol 'balik' */
+    color: white;  /* Warna teks tombol 'balik' */
+}
+
+/* Gaya khusus untuk tombol 'buat' */
+.buat {
+    background-color: goldenrod;  /* Warna latar belakang tombol 'buat' */
+    color: white;  /* Warna teks tombol 'buat' */
+}
+
+/* Efek hover untuk tombol */
+.balik:hover {
+    background-color: #5a6268;  /* Warna saat tombol 'balik' di-hover */
+}
+
+.buat:hover {
+    background-color: white;  /* Warna saat tombol 'buat' di-hover */
+    color: goldenrod;
+}
+
+
+/* Gaya untuk link agar tombol tidak terpengaruh */
+.back a {
+    text-decoration: none;  /* Menghilangkan underline pada link */
+}
