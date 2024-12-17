@@ -17,7 +17,7 @@
     
 </head>
 <body>
-    
+    <!-- tesr -->
 <x-navbar> </x-navbar>
 
 <section class="container">
