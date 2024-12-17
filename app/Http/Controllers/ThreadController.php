@@ -39,10 +39,9 @@ class ThreadController extends Controller
         $thread = Thread::create([
             'title' => $request->title,
             'content' => $request->content,
-            'user_id' => auth()->id(), // Ambil ID pengguna yang sedang login
         ]);
 
-        return redirect()->route('threads')->with('success', 'Thread berhasil dibuat.');
+        return redirect()->route('threads.index')->with('success', 'Thread berhasil dibuat.');
     }
     public function search(Request $request)
     {

@@ -26,7 +26,8 @@ class checkLogin
         if ($user->role !== $role) {
             return redirect('/')->with('error', 'You do not have access to this page.');
         }
+        
 
-        return $next($request);
+        return $next($request); // Lanjutkan request jika peran sudah sesuai
     }
 }

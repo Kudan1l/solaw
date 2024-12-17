@@ -114,6 +114,7 @@ class Login extends Controller
             $request->session()->regenerate();
             return redirect()->intended('/');
         }
+        
  
         return back();
     }

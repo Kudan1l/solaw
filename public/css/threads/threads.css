@@ -1,19 +1,18 @@
 /* General Styles */
-body {
+/* body {
     font-family: Arial, sans-serif;
     background-color: #f8f9fa;
     margin: 0;
     padding: 0;
     top: 20px;
     margin-top: 80px;
-}
+} */
 
 /* Sidebar Styles */
 aside {
     position: sticky;
     top: 80px; /* Menentukan posisi elemen sticky ketika di-scroll */
     overflow-y: auto;
-    background-color: #f8f9fa;
     padding: 1rem;
     border-right: 1px solid #dee2e6;
     height: 60vh; /* Pastikan elemen memiliki tinggi yang cukup */
@@ -22,7 +21,7 @@ aside h1 {
     font-family: Lexend, serif;
     font-weight: bold;
     font-size: 40px;
-    color: rgb(0, 0, 0); 
+    color: rgb(0, 0, 0);
 }
 
 /* Header Styles */
@@ -85,7 +84,8 @@ form button:hover {
 }
 
 /* Styling untuk tombol Cari dengan kelas btn-search */
-button.btn.btn-search , button.btn.btn.btn-komentar {
+button.btn.btn-search,
+button.btn.btn.btn-komentar {
     display: inline-block;
     font-size: 1.1rem;
     padding: 0.75rem 1.5rem;
@@ -112,7 +112,6 @@ button.btn.btn-search:hover {
         padding: 0.5rem 1rem;
     }
 }
-
 
 a.thread {
     display: inline-block;
@@ -179,7 +178,7 @@ form.d-flex button {
 }
 .comment-section {
     max-height: 400px; /* Batas tinggi kotak komentar */
-    overflow-y: auto;  /* Menambahkan scrollbar jika isi melebihi tinggi */
+    overflow-y: auto; /* Menambahkan scrollbar jika isi melebihi tinggi */
     padding: rem;
     border: 1px solid #dee2e6;
     background-color: #f8f9fa;
@@ -267,7 +266,8 @@ form.d-flex button {
         flex-direction: column;
     }
 
-    form.d-flex input, form.d-flex button {
+    form.d-flex input,
+    form.d-flex button {
         margin-bottom: 0.5rem;
         width: 100%;
     }

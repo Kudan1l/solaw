@@ -18,7 +18,7 @@
         <!-- Box login di kanan -->
         <div class="login-container text-center">
             <h3 class="mb-2">Login</h3>
-            <form action="{{ route('login') }}" method="POST">
+            <form action="{{ route('login.authenticate') }}" method="POST">
                 @csrf
                 <div class="mb-3">
                     <label for="email" class="form-label">Email</label>

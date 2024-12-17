@@ -16,7 +16,7 @@
     <div class="container-fluid">
         <div class="row">
             <!-- Sidebar -->
-            <aside class="col-md-3 bg-light p-4">
+            <aside class="col-md-3 p-4">
                 @yield('sidebar')
             </aside>
 
