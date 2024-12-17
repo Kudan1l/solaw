@@ -2,20 +2,43 @@
 
 use App\Http\Controllers\DocumentController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Login;
 use App\Http\Controllers\ConsultantController;
+
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ThreadController;
 
+use App\Http\Controllers\AdminController;
+
+use App\Http\Middleware\checkLogin;
+
 // Home
 Route::get("/", [HomeController::class,"index"])->name("home");
+
+
+// Route::get('/login', [Login::class, 'index'])->name('login');
+// Route::post('/loginPost', [Login::class, 'login'])->name('loginPost');
+
+// Route::middleware(['auth', 'role:user'])->group(function() {
+//     Route::get("/artikel", [HomeController::class,"articleMenu"])->name("article");
+//     Route::get("/artikel/{id}", [HomeController::class,"showArticle"])->name("article.detail");
+// });
+
 Route::get("/artikel", [HomeController::class,"articleMenu"])->name("article");
 Route::get("/artikel/{id}", [HomeController::class,"showArticle"])->name("article.detail");
 
+// Route::get('/dashboard', function() {
+//     $user = Auth::user();
+//     return view('dashboard_user', ['user' => $user]);
+// })->name('dashboard')->middleware(['auth', 'role:admin']);
+
 Route::get('/login', [Login::class, 'index'])->name('login');
-Route::post('/loginPost', [Login::class, 'login'])->name('loginPost');
+Route::post('/loginPost', [Login::class, 'authenticate'])->name('login.authenticate');
+Route::post('/logout', [Login::class, 'logout'])->name('logout');
+
 
 Route::get('/forgotpass', [Login::class, 'forgotview'])->name('forgotview');
 Route::post('/forgotpass', [Login::class, 'update'])->name('forgotupdate');
@@ -69,3 +92,14 @@ Route::post('/threads/search', [ThreadController::class, 'search'])->name('threa
 
 // Comment Routes
 Route::post('/comments', [CommentController::class, 'store'])->name('comment.store');
+
+
+// Middleware Admin
+Route::middleware(['auth', 'role:admin'])->group(function() {
+    Route::get('/admin', [AdminController::class, 'index'])->name('dashboard.admin');
+    Route::get('/admin/articles/{article}/edit', [AdminController::class, 'edit'])->name('admin.article.edit');
+    Route::put('/admin/articles/{article}/edit', [AdminController::class, 'update'])->name('admin.article.update');
+    Route::get('/admin/articles/create', [AdminController::class, 'create'])->name('admin.article.create');
+    Route::post('/admin/articles/create', [AdminController::class, 'store'])->name('admin.article.create');
+    Route::delete('/admin/articles/{article}', [AdminController::class, 'destroy'])->name('admin.article.delete');
+});

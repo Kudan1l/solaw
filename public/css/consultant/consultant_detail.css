@@ -19,3 +19,9 @@
 .card-detail .bi {
     color: #004ab3;
 }
+
+.card-layanan .nav-link,
+.card-layanan .nav-link.active {
+    padding: 0;
+    color: #00204a;
+}

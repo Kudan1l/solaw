@@ -17,6 +17,7 @@ return new class extends Migration
             $table->longText('description');
             $table->longText('content');
             $table->string('thumbnail_url');
+            $table->enum('status', ['draft', 'publish'])->default('draft');
             $table->timestamps();
         });
 

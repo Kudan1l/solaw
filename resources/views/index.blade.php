@@ -20,7 +20,6 @@
 </head>
 <body>
     <x-navbar></x-navbar>
-
     <div class="container">
         <div id="carousel" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">

@@ -45,6 +45,8 @@ body {
         color: #155724;
         background-color: #d4edda;
         border-color: #c3e6cb;
+        padding: 5px 10px;
+        line-height: 1.5; 
     }
     .alert-danger {
         color: #721c24;

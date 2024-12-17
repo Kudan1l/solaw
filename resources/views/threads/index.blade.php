@@ -1,7 +1,7 @@
 @extends('layout.threads')
 
 @section('sidebar')
-    <h1 style="">Forum Diskusi</h1>
+    <h1>Forum Diskusi</h1>
     
     <!-- Form Search -->
     <form action="{{ route('threads.search') }}" method="POST">

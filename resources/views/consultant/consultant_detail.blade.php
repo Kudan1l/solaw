@@ -75,7 +75,7 @@
                         </div>
                     </div>
 
-                    <div class="card-experience d-flex flex-column mt-3">
+                    <div class="card-experience d-flex flex-column border-bottom py-3">
                         <span class="fs-5"><strong>Pendidikan dan Pengalaman</strong></span>
                         <div class="d-flex flex-column">
                             <div class="experience-years d-flex align-items-center mt-2">
@@ -89,6 +89,51 @@
                         </div>
                     </div>
 
+                    <div class="card-layanan">
+                        <!-- Tab Navigation -->
+                        <ul class="nav nav-underline" id="myTab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="layanan-tab" data-bs-toggle="tab" data-bs-target="#layanan" type="button" role="tab" aria-controls="layanan" aria-selected="true">
+                                    Layanan
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="ulasan-tab" data-bs-toggle="tab" data-bs-target="#ulasan" type="button" role="tab" aria-controls="ulasan" aria-selected="false">
+                                    Ulasan
+                                </button>
+                            </li>
+                        </ul>
+
+                        <!-- Tab Content -->
+                        <div class="tab-content mt-3">
+                            <!-- Konten Layanan -->
+                            <div class="tab-pane fade show active" id="layanan" role="tabpanel" aria-labelledby="layanan-tab">
+                                <div class="layanan-item d-flex align-items-center fs-5">
+                                    <i class="bi bi-chat-right-dots me-3"></i>
+                                    <span>Konsultasi via Chat</span>
+                                </div>
+
+                                <a href="https://www.whatsapp.com/" class="btn btn-primary1 mt-3 w-100">Pesan Sekarang</a>
+                                
+                            </div>
+
+                            <!-- Konten Ulasan -->
+                            <div class="tab-pane fade" id="ulasan" role="tabpanel" aria-labelledby="ulasan-tab">
+                                <div class="card-ulasan">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -96,5 +141,6 @@
     </div>
 
     <x-footer></x-footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>

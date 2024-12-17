@@ -1,20 +1,14 @@
-
-
 /* judul */
-.container {
-    
-    padding: 20px;
-}
 
 .judul {
     text-align: center;
-    margin-top: 100px ;
+    margin-top: 100px;
     color: goldenrod;
 }
 
 .judul2 {
     font-size: 25px;
-    color: #00204A;
+    color: #00204a;
 }
 
 .judul3 {
@@ -28,7 +22,6 @@
     font-size: 15px;
 }
 
-
 /* button lihat dokumen */
 .btn1 {
     margin-top: 40px;
@@ -39,7 +32,7 @@
 
 /* isi dokumen */
 
-.dokumkontrak .col-md-4{
+.dokumkontrak .col-md-4 {
     /* padding-left: 5px;
     padding-right: 5px; */
     display: flex;
@@ -60,17 +53,11 @@
     object-fit: cover;
 }
 .card-title {
-    color: #00204A;
-    
+    color: #00204a;
 }
-
 
 .card-text {
-    
-    color: #00204A;
-    
+    color: #00204a;
+
     text-align: justify;
 }
-
-
-

@@ -37,7 +37,7 @@
                         </a>
                         </div>
                         <div class="col item-dropdown">
-                            <a href="">
+                            <a href="{{ route('PEMBUATANDOKUM') }}">
                             <h4>Pembuatan Dokumen</h4>
                                 <p>
                                 Lorem ipsum dolor sit amet, consectetur adipiscing
@@ -65,8 +65,27 @@
             </ul>
 
             <div class="d-flex login align-items-center">
-              <a id="signupLink" class="nav-link" href=" {{ route('signupview') }} ">Sign up</a>
-              <a id="loginLink" type="button" class="btn btn-login" href="{{ route('login') }}">Login</a>
+            @auth
+                <!-- Jika pengguna adalah admin, tampilkan link ke dashboard -->
+                @if(Auth::user()->role === 'admin')
+                    <a id="signupLink" class="nav-link" href="{{ route('dashboard.admin') }}">{{ Auth::user()->name }}</a>
+                @else
+                    <!-- Jika pengguna bukan admin, tampilkan link ke home atau halaman lain -->
+                    <a id="signupLink" class="nav-link" href="{{ route('home') }}">{{ Auth::user()->name }}</a>
+                @endif
+                
+                <!-- Form logout -->
+                <form action="{{ route('logout') }}" method="POST">
+                    @csrf
+                    <button type="submit" class="btn btn-danger">Logout</button>
+                </form>
+            @else
+                <!-- Jika belum login, tampilkan link untuk signup dan login -->
+                <a id="signupLink" class="nav-link" href="{{ route('signupview') }}">Sign up</a>
+                <a id="loginLink" type="button" class="btn btn-login" href="{{ route('login') }}">Login</a>
+            @endauth
+              <!-- <a id="signupLink" class="nav-link" href=" {{ route('signupview') }} ">Sign up</a>
+              <a id="loginLink" type="button" class="btn btn-login" href="{{ route('login') }}">Login</a> -->
               <!-- <a id="profileIcon" href="#" class="nav-link">
                 <i class="bi bi-person-circle"></i>
               </a> -->
