@@ -68,11 +68,13 @@ Dengan adanya perlindungan hukum yang baik, transaksi perbankan yang melibatkan 
                 "updated_at" => now(),
             ],
         ]);
+
         DB::table('categories')->insert([
             ['name' => 'Properti'],
             ['name' => 'Bank'],
             ['name' => 'Perusahaan'],
         ]);
+
         DB::table('article_category')->insert([
             [
                 'article_id' => '1',

@@ -103,3 +103,19 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
     Route::post('/admin/articles/create', [AdminController::class, 'store'])->name('admin.article.create');
     Route::delete('/admin/articles/{article}', [AdminController::class, 'destroy'])->name('admin.article.delete');
 });
+
+Route::get('/prosedure', function () {
+    return view('procedure/view');
+});
+
+Route::get('/ks', function () {
+    return view('procedure/ks');
+})->name('ks');
+
+Route::get('/kp', function () {
+    return view('procedure/kp');
+})->name('kp');
+
+Route::get('/ca', function () {
+    return view('procedure/ca');
+})->name('ca');
