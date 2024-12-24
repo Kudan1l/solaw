@@ -116,7 +116,7 @@ class Login extends Controller
         }
         
  
-        return back();
+        return back()->with('error', 'Email atau password salah.');
     }
 
     public function logout() {
