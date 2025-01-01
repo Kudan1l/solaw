@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use App\Models\Consultant;
 use App\Models\Article;
 use App\Models\Category;
@@ -83,6 +84,25 @@ class AdminController extends Controller
         return redirect()->route('dashboard.article.index')->with('success', 'Article created successfully!');
     }
 
+    public function storeAdmin(Request $request)
+    {
+        $request->validate([
+            'name' => ['required', 'regex:/^[a-zA-Z\s]+$/', 'max:50'],
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required|min:6',
+            'role' => 'in:user,admin',
+        ]);
+
+        $user = new User();
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
+        $user->role = "admin";
+        $user->save();
+
+        return redirect()->route('dashboard.admin.index')->with('success', 'Admin added successfully!');
+    }
+
     public function storeConsultant(Request $request)
     {
         $request->validate([
@@ -101,6 +121,11 @@ class AdminController extends Controller
         $consultant->specialties()->sync($request->specialities);
 
         return redirect()->route('dashboard.consultant.index')->with('success', 'Consultant added successfully!');
+    }
+
+    public function viewEditAdmin(User $user)
+    {
+        return view("dashboard.admin.admin.edit",compact('user'));
     }
 
     public function viewEditArticle(Article $article)
@@ -135,6 +160,30 @@ class AdminController extends Controller
 
         Specialty::create(['name' => $request->name]);
         return redirect()->back();
+    }
+
+    public function updateAdmin(Request $request, User $user)
+    {
+        $request->validate([
+            'name' => ['required', 'regex:/^[a-zA-Z\s]+$/', 'max:50'],
+            'email' => 'required|email|unique:users,email,' . $user->id, // Tambahkan koma
+            'password' => 'nullable|min:6',
+        ]);
+
+        // Update atribut
+        $user->name = $request->name;
+        $user->email = $request->email;
+
+        // Update password jika diisi
+        if ($request->filled('password')) {
+            $user->password = Hash::make($request->password);
+        }
+
+        // Simpan perubahan
+        $user->save();
+
+        // Redirect ke halaman dashboard dengan pesan sukses
+        return redirect()->route('dashboard.admin.index')->with('success', 'Admin updated successfully!');
     }
 
     public function updateArticle(Request $request, Article $article) 
