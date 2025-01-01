@@ -15,6 +15,12 @@ use App\Http\Controllers\AdminController;
 
 use App\Http\Middleware\checkLogin;
 
+//atasi 404
+Route::fallback(function () {
+    return response()->view('error.error', [], 404);
+});
+
+
 // Home
 Route::get("/", [HomeController::class,"index"])->name("home");
 
@@ -75,6 +81,8 @@ Route::get('/konsultan-hukum/{id}', [ConsultantController::class, 'ConsultantDet
 Route::get('/forgot-password', [Login::class, 'forgotview'])->name('forgot-password-view');
 Route::post('/forgot-password', [Login::class, 'searchAccount'])->name('forgot-password-search');
 
+
+
 // Thread Routes
 Route::get('/threads', [ThreadController::class, 'index'])->name('threads');
 Route::get('/threads/create', [ThreadController::class, 'create'])->name('threads.create');
@@ -85,6 +93,11 @@ Route::resource('threads', ThreadController::class)->except(['index', 'create', 
 // Comment Routes
 Route::post('/comments', [CommentController::class, 'store'])->name('comment.store');
 Route::delete('/comments/{comment}', [CommentController::class, 'destroy'])->name('comment.destroy');
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/threads/create', [ThreadController::class, 'create'])->name('threads.create');
+    Route::post('/threads', [ThreadController::class, 'store'])->name('threads.store');
+});
 
 
 // Middleware Dashboard Admin

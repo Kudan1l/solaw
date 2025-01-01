@@ -4,6 +4,7 @@
 <h1><a href="/threads" class="text-decoration-none">Forum Diskusi</a></h1>
 
 <!-- Form untuk Menambahkan Komentar -->
+@if (Auth::check()) <!-- Pastikan hanya pengguna yang login yang bisa mengirim komentar -->
 <div class="add-comment mt-4">
     <form action="{{ route('comment.store') }}" method="POST" class="form-thread">
         <h4>Tambah Komentar</h4>
@@ -16,6 +17,10 @@
         <button type="submit" class="btn btn-komentar">Kirim Komentar</button>
     </form>
 </div>
+@else
+<!-- Pesan bagi pengguna yang belum login -->
+<p>Silakan <a href="{{ route('login') }}">login</a> untuk menambahkan komentar.</p>
+@endif
 @endsection
 
 @section('content')
@@ -26,7 +31,7 @@
     <p><strong>-</strong>Diposting oleh: <strong>{{ $thread->user->name ?? 'Anonim' }} </strong> pada: <strong>{{ $thread->created_at->format('d M Y, H:i') }}</strong></p>
 </div>
 
-@if (Auth::id() == $thread->user_id || Auth::user()->role == 'admin')
+@if (Auth::check() && (Auth::id() == $thread->user_id || Auth::user()->role == 'admin'))
     <!-- Tombol Edit -->
     <a href="{{ route('threads.edit', $thread->id) }}" class="btn btn-primary">Edit</a>
 
@@ -44,11 +49,11 @@
     @forelse ($thread->comments as $comment)
         <div class="comment mb-3">
             <!-- Menampilkan nama pengguna yang berkomentar -->
-            <p><strong>{{ $comment->user->name }}</strong> - <small>{{ $comment->created_at->format('d M Y, H:i') }}</small></p>
+            <p><strong>{{ $comment->user->name ?? 'Anonim' }}</strong> - <small>{{ $comment->created_at->format('d M Y, H:i') }}</small></p>
             <p>{{ $comment->content }}</p>
 
             <!-- Hanya Admin yang dapat menghapus komentar -->
-            @if (Auth::user()->role == 'admin')
+            @if (Auth::check() && Auth::user()->role == 'admin')
                 <form action="{{ route('comment.destroy', $comment->id) }}" method="POST" style="display: inline;">
                     @csrf
                     @method('DELETE')
