@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Auth;
 
 class ThreadController extends Controller
 {
+
+     
     /**
      * Display a listing of the resource.
      */
@@ -114,4 +116,5 @@ class ThreadController extends Controller
         $thread->delete();
         return redirect()->route('threads')->with('success', 'Thread berhasil dihapus.');
     }
+    
 }
