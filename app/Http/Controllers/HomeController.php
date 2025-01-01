@@ -9,7 +9,7 @@ use App\Models\Category;
 class HomeController extends Controller
 {
     public function index() {
-        $articles = Article::with('categories')->latest()->take(3)->get();
+        $articles = Article::where('status', 'publish')->with('categories')->latest()->take(3)->get();
         // $consultants = Consultant::take(3)->get();
         return view("index", compact("articles"));
     }
@@ -18,11 +18,11 @@ class HomeController extends Controller
         $selectedCategories = $request->input('categories', []);
 
         if ($selectedCategories) {
-            $articles = Article::whereHas('categories', function($query) use ($selectedCategories) {
+            $articles = Article::where('status', 'publish')->whereHas('categories', function($query) use ($selectedCategories) {
                 $query->whereIn('categories.id', $selectedCategories);
             })->get();
         } else {
-            $articles = Article::with('categories')->get();
+            $articles = Article::where('status', 'publish')->with('categories')->get();
         }
 
         $categories = Category::all();
@@ -30,7 +30,7 @@ class HomeController extends Controller
     }
 
     public function showArticle($id) {
-        $articles = Article::with('categories')->findOrFail($id);
+        $articles = Article::where('status', 'publish')->with('categories')->findOrFail($id);
         return view("article.article_detail", compact("articles"));
     }
 }

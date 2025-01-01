@@ -94,19 +94,36 @@ Route::post('/threads/search', [ThreadController::class, 'search'])->name('threa
 Route::post('/comments', [CommentController::class, 'store'])->name('comment.store');
 
 
-// Middleware Admin
+// Middleware Dashboard Admin
 Route::middleware(['auth', 'role:admin'])->group(function() {
-    Route::get('/admin', [AdminController::class, 'index'])->name('dashboard.admin');
-    Route::get('/admin/articles/{article}/edit', [AdminController::class, 'edit'])->name('admin.article.edit');
-    Route::put('/admin/articles/{article}/edit', [AdminController::class, 'update'])->name('admin.article.update');
-    Route::get('/admin/articles/create', [AdminController::class, 'create'])->name('admin.article.create');
-    Route::post('/admin/articles/create', [AdminController::class, 'store'])->name('admin.article.create');
-    Route::delete('/admin/articles/{article}', [AdminController::class, 'destroy'])->name('admin.article.delete');
+    Route::get('/dashboard', [AdminController::class, 'viewDashboard'])->name('dashboard');
+    Route::prefix('dashboard/articles')->name('dashboard.article.')->group(function() {
+        Route::get('/', [AdminController::class, 'viewArticle'])->name('index');
+        Route::get('/form', [AdminController::class, 'viewFormArticle'])->name('add');
+        Route::post('/form', [AdminController::class, 'storeArticle'])->name('store');
+        Route::get('/edit/{article}', [AdminController::class, 'viewEditArticle'])->name('edit');
+        Route::put('/edit/{article}', [AdminController::class, 'updateArticle'])->name('update');
+        Route::delete('/{article}', [AdminController::class, 'destroyArticle'])->name('destroy');
+    });
+    Route::prefix('dashboard/users')->name('dashboard.user.')->group(function(){
+        Route::get('/', [AdminController::class, 'viewUser'])->name('index');
+        Route::delete('/{user}', [AdminController::class, 'destroyUser'])->name('destroy');
+    });
+    Route::prefix('dashboard/consultants')->name('dashboard.consultant.')->group(function(){
+        Route::get('/', [AdminController::class, 'viewConsultant'])->name('index');
+        Route::get('/form', [AdminController::class, 'viewFormConsultant'])->name('add');
+        Route::post('/form', [AdminController::class, 'storeConsultant'])->name('store');
+        Route::get('/edit/{consultant}', [AdminController::class, 'viewEditConsultant'])->name('edit');
+        Route::put('/edit/{consultant}', [AdminController::class, 'updateConsultant'])->name('update');
+    });
+    Route::post('/categories', [AdminController::class, 'storeCategory'])->name('categories.store');
+    Route::post('/specialties', [AdminController::class, 'storeSpecialiy'])->name('speciality.store');
+    
 });
 
 Route::get('/prosedure', function () {
     return view('procedure/view');
-});
+})->name('procedure.menu');
 
 Route::get('/ks', function () {
     return view('procedure/ks');

@@ -1,0 +1,8 @@
+form, .form-label {
+    color: #00204a;
+}
+
+.table {
+    --bs-table-bg: transparent;
+    --bs-table-color: #00204a;
+}
