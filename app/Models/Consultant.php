@@ -8,10 +8,12 @@ class Consultant extends Model
 {
     protected $table = 'consultants';
 
-    // protected $fillable = [
-    //     'name',
-    //     'profile_photo',
-    // ];
+    protected $fillable = [
+        'name',
+        'email',
+        'phone_number',
+        'profile_photo',
+    ];
 
     public function specialties()
     {

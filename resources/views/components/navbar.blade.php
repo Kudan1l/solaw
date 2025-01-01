@@ -27,7 +27,7 @@
                     <div class="mega-menu-wrapper">
                     <div class="row">
                         <div class="col item-dropdown">
-                        <a href="">
+                        <a href="{{ route('procedure.menu') }}">
                             <h4>Prosedur Hukum</h4>
                             <p>
                             Lorem ipsum dolor sit amet, consectetur adipiscing
@@ -68,8 +68,10 @@
             @auth
                 <!-- Jika pengguna adalah admin, tampilkan link ke dashboard -->
                 @if(Auth::user()->role === 'admin')
-                    <a id="signupLink" class="nav-link" href="{{ route('dashboard.admin') }}">{{ Auth::user()->name }}</a>
-                @else
+                    <a id="signupLink" class="nav-link" href="{{ route('dashboard') }}">{{ Auth::user()->name }}</a>
+                    @elseif(Auth::user()->role === 'user')
+                    <a id="signupLink" class="nav-link" href="{{ route('dashboard') }}">{{ Auth::user()->name }}</a>
+                    @else
                     <!-- Jika pengguna bukan admin, tampilkan link ke home atau halaman lain -->
                     <a id="signupLink" class="nav-link" href="{{ route('home') }}">{{ Auth::user()->name }}</a>
                 @endif
@@ -84,11 +86,6 @@
                 <a id="signupLink" class="nav-link" href="{{ route('signupview') }}">Sign up</a>
                 <a id="loginLink" type="button" class="btn btn-login" href="{{ route('login') }}">Login</a>
             @endauth
-              <!-- <a id="signupLink" class="nav-link" href=" {{ route('signupview') }} ">Sign up</a>
-              <a id="loginLink" type="button" class="btn btn-login" href="{{ route('login') }}">Login</a> -->
-              <!-- <a id="profileIcon" href="#" class="nav-link">
-                <i class="bi bi-person-circle"></i>
-              </a> -->
             </div>
         </div>
     </div>
