@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Comment;
+use App\Models\Thread;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CommentController extends Controller
 {
@@ -38,7 +40,7 @@ class CommentController extends Controller
         $comment = new Comment();
         $comment->content = $request->content;
         $comment->thread_id = $request->thread_id;
-         // Pastikan user terautentikasi
+        $comment->user_id = Auth::id();  // Menambahkan ID pengguna yang mengomentari
         $comment->save();
 
         // Redirect ke halaman thread atau ke tempat yang diinginkan
@@ -75,6 +77,11 @@ class CommentController extends Controller
      */
     public function destroy(Comment $comment)
     {
-        //
+        // Hanya admin yang dapat menghapus komentar
+        if (Auth::user()->role == 'admin') {
+            $comment->delete();
+        }
+
+        return redirect()->back()->with('success', 'Komentar berhasil dihapus!');
     }
 }

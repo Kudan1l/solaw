@@ -2,14 +2,14 @@
 
 
 @section('sidebar')
-    <h1>Forum Diskusi</h1>
+<h1><a href="/threads" class="text-decoration-none">Forum Diskusi</a></h1>
 @endsection
 
 
 @section('content')
     <div class="container">
         
-        <form action="{{ route('threads.store') }}" method="POST">
+        <form action="{{ route('threads.store') }}" method="POST" class="form-thread">
             @csrf
             <div class="form-group">
             <h1>Buat Thread Baru</h1>

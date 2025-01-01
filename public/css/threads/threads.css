@@ -50,7 +50,7 @@ header form {
 }
 
 /* Form Styles for create and show pages */
-form {
+.form-thread {
     background-color: white;
     border: 1px solid #dee2e6;
     border-radius: 5px;
@@ -70,7 +70,7 @@ form .form-control {
 }
 
 form button {
-    margin-top: 1rem;
+    
     padding: 0.75rem 2rem;
     font-size: 1rem;
     background-color: #001f3f;
