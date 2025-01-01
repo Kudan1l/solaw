@@ -2,22 +2,25 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Comment extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['content', 'thread_id', 'user_id'];
+    // Relasi dengan user
+    public function user()
+    {
+        return $this->belongsTo(User::class);  // Relasi ke pengguna yang mengomentari
+    }
 
+    // Relasi dengan thread
     public function thread()
     {
         return $this->belongsTo(Thread::class);
     }
 
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
+    // Kolom yang dapat diisi
+    protected $fillable = ['content', 'thread_id', 'user_id']; // Menambahkan user_id ke $fillable
 }

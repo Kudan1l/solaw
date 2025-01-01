@@ -81,9 +81,10 @@ Route::get('/threads/create', [ThreadController::class, 'create'])->name('thread
 Route::post('/threads', [ThreadController::class, 'store'])->name('threads.store');
 Route::get('/threads/{thread}', [ThreadController::class, 'show'])->name('threads.show');
 Route::post('/threads/search', [ThreadController::class, 'search'])->name('threads.search');
-
+Route::resource('threads', ThreadController::class)->except(['index', 'create', 'store', 'show']); // Menyederhanakan rute
 // Comment Routes
 Route::post('/comments', [CommentController::class, 'store'])->name('comment.store');
+Route::delete('/comments/{comment}', [CommentController::class, 'destroy'])->name('comment.destroy');
 
 
 // Middleware Dashboard Admin

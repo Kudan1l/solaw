@@ -6,13 +6,14 @@ use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
-
+use Carbon\Carbon;
 class DatabaseSeeder extends Seeder
 {
     public function run(){
         $this->call([
             ConsultantSeeder::class,
-            ThreadSeeder::class,
+            
+            
         ]);
 
         DB::table("articles")->insert([
@@ -112,7 +113,92 @@ Dengan adanya perlindungan hukum yang baik, transaksi perbankan yang melibatkan 
                 'password' => Hash::make('admin'),
                 'role' => 'admin', // Role 'admin' harus disebutkan secara eksplisit
             ],
-        ]);        
+            [
+                'name' => 'Agung',
+                'email' => 'agung@gmail.com',
+                'password' => Hash::make('agungpassword'),
+                'role' => 'user', // Role 'user' untuk Agung
+            ],
+        ]);
+
+        $thread1 = DB::table('threads')->insertGetId([
+            'title' => 'Reformasi Hukum di Indonesia: Apa yang Harus Diperbaiki?',
+            'content' => 'Hukum di Indonesia masih banyak mengalami tantangan, terutama dalam hal reformasi hukum dan penegakan hukum yang adil. Apa saja langkah-langkah yang perlu diambil untuk memperbaiki sistem hukum di Indonesia?',
+            'user_id' => 1, // Mengacu pada ID pengguna yang valid
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ]);
+
+        $thread2 = DB::table('threads')->insertGetId([
+            'title' => 'Peran Pengadilan dalam Meningkatkan Akses Keadilan di Indonesia',
+            'content' => 'Pengadilan memegang peranan penting dalam menjamin akses keadilan di Indonesia. Apa saja kendala yang dihadapi oleh pengadilan dalam melaksanakan tugasnya, dan bagaimana cara mengatasinya?',
+            'user_id' => 2, // Mengacu pada ID pengguna yang valid
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ]);
+
+        $thread3 = DB::table('threads')->insertGetId([
+            'title' => 'Pentingnya Perlindungan Hak Asasi Manusia dalam Sistem Hukum Indonesia',
+            'content' => 'Hak asasi manusia sering kali terabaikan dalam sistem hukum Indonesia. Bagaimana kita bisa memastikan bahwa hukum di Indonesia melindungi hak-hak dasar setiap individu?',
+            'user_id' => 3, // Mengacu pada ID pengguna yang valid
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ]);
+
+        // Membuat komentar untuk thread pertama
+        DB::table('comments')->insert([
+            [
+                'content' => 'Menurut saya, reformasi hukum di Indonesia sangat penting. Salah satu langkah yang perlu diambil adalah memperbaiki sistem pendidikan hukum agar lebih berpihak pada keadilan.',
+                'thread_id' => $thread1,
+                'user_id' => 2, // Mengacu pada ID pengguna yang valid
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],
+            [
+                'content' => 'Setuju! Pendidikan hukum yang lebih baik dapat membentuk pemahaman yang lebih baik bagi masyarakat. Selain itu, penegakan hukum yang adil harus menjadi prioritas utama.',
+                'thread_id' => $thread1,
+                'user_id' => 3, // Mengacu pada ID pengguna yang valid
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],
+        ]);
+
+        // Membuat komentar untuk thread kedua
+        DB::table('comments')->insert([
+            [
+                'content' => 'Kendala utama yang dihadapi oleh pengadilan di Indonesia adalah keterbatasan sumber daya dan fasilitas. Selain itu, banyak masyarakat yang belum memahami proses hukum yang ada.',
+                'thread_id' => $thread2,
+                'user_id' => 1, // Mengacu pada ID pengguna yang valid
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],
+            [
+                'content' => 'Saya rasa pengadilan juga harus lebih transparan agar masyarakat bisa lebih percaya pada sistem peradilan kita.',
+                'thread_id' => $thread2,
+                'user_id' => 2, // Mengacu pada ID pengguna yang valid
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],
+        ]);
+
+        // Membuat komentar untuk thread ketiga
+        DB::table('comments')->insert([
+            [
+                'content' => 'Perlindungan hak asasi manusia memang sangat penting, namun sering kali diabaikan dalam proses hukum. Diperlukan pendekatan yang lebih sistematis untuk memastikan hak-hak dasar setiap individu terlindungi.',
+                'thread_id' => $thread3,
+                'user_id' => 2, // Mengacu pada ID pengguna yang valid
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],
+            [
+                'content' => 'Saya berharap ada lebih banyak lembaga yang mengawasi pelaksanaan hak asasi manusia dalam sistem hukum kita, sehingga tindakan penyalahgunaan bisa diminimalkan.',
+                'thread_id' => $thread3,
+                'user_id' => 1, // Mengacu pada ID pengguna yang valid
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],
+        ]);
+             
     }
         
 }
