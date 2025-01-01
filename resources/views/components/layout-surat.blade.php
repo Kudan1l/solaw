@@ -24,11 +24,6 @@
 <body>
 
     <div class="container">
-        
-        <x-jenis>{{$title}}</x-jenis>
-
-
-
         <form action="{{route('store')}}" method="POST">
             @csrf
             <div class="form-group">

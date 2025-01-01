@@ -63,15 +63,7 @@ Route::get('/PEMBUATANDOKUM/Pengadilan', [DocumentController::class, 'Pengadilan
 
 Route::get('/PEMBUATANDOKUM/buatSurat', [DocumentController::class, 'buatSurat'])->name('buatSurat');
 
-// Route::get('/PEMBUATANDOKUM/SuratKuasa/buatSurat', [DocumentController::class, 'buatKuasa'])->name('buatSuratKuasa');
 
-// Route::get('/PEMBUATANDOKUM/Notaris/buatSurat', [DocumentController::class, 'buatNotaris'])->name('buatNotaris');
-
-// Route::get('/PEMBUATANDOKUM/Perjanjian/buatSurat', [DocumentController::class, 'buatPerjanjian'])->name('buatPerjanjian');
-
-// Route::get('/PEMBUATANDOKUM/Gugatan/buatSurat', [DocumentController::class, 'buatGugatan'])->name('buatGugatan');
-
-// Route::get('/PEMBUATANDOKUM/Pengadilan/buatSurat', [DocumentController::class, 'buatPengadilan'])->name('buatPengadilan');
 
 // 
 Route::post('/dokumenpost', [DocumentController::class, 'store'])->name('store');
@@ -116,6 +108,15 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
         Route::get('/edit/{consultant}', [AdminController::class, 'viewEditConsultant'])->name('edit');
         Route::put('/edit/{consultant}', [AdminController::class, 'updateConsultant'])->name('update');
     });
+    
+    Route::prefix('dashboard/admin')->name('dashboard.admin.')->group(function(){
+        Route::get('/', [AdminController::class, 'viewAdmin'])->name('index');
+        Route::get('/form', [AdminController::class, 'viewFormAdmin'])->name('add');
+        Route::post('/form', [AdminController::class, 'storeAdmin'])->name('store');
+        Route::get('/edit/{user}', [AdminController::class, 'viewEditAdmin'])->name('edit');
+        Route::put('/edit/{user}', [AdminController::class, 'updateAdmin'])->name('update');
+    });
+
     Route::post('/categories', [AdminController::class, 'storeCategory'])->name('categories.store');
     Route::post('/specialties', [AdminController::class, 'storeSpecialiy'])->name('speciality.store');
     

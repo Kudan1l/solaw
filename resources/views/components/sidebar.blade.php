@@ -6,7 +6,7 @@
         <a href="{{ route('dashboard') }}" class="nav-link {{ request()->is('dashboard') ? 'active' : '' }}"><i class="bi bi-house-door-fill me-2"></i>Dashboard</a>
     </li>
     <li class="nav-item mb-2">
-        <a href="" class="nav-link"><i class="bi bi-person-badge me-2"></i>Kelola Admin</a>
+        <a href="{{ route('dashboard.admin.index') }}" class="nav-link" {{ request()->is('dashboard/admin*') ? 'active' : '' }}><i class="bi bi-person-badge me-2"></i>Kelola Admin</a>
     </li>
     <li class="nav-item mb-2">
         <a href="{{ route('dashboard.consultant.index') }}" class="nav-link" {{ request()->is('dashboard/consultants*') ? 'active' : '' }}><i class="bi bi-person-fill me-2"></i>Kelola Konsultan</a>
