@@ -103,24 +103,34 @@ class AdminController extends Controller
         return redirect()->route('dashboard.admin.index')->with('success', 'Admin added successfully!');
     }
 
+    // Store Consultant
     public function storeConsultant(Request $request)
     {
         $request->validate([
-            'name' => 'required|string',
-            'email' => 'required',
-            'phone_number' => 'required|integer',
-            'experience_year' => 'required|integer',
+            'name' => 'required|regex:/^[a-zA-Z\s.,]+$/',
+            'email' => 'required|email',
+            'phone_number' => 'required|regex:/^0\d+$/',
+            'experience_years' => 'required|integer',
             'about' => 'required|string',
             'profile_photo' => 'required|string',
             'education' => 'required|string',
             'location' => 'required|string',
-            'specialities' => 'required|array'
+            'specialities' => 'required|array',
+            'password' => 'required|min:6',
+            'role' => 'in:user,admin',
         ]);
 
-        $consultant = Consultant::create($request->only(['name', 'email', 'phone_number', 'experience_year', 'about', 'profile_photo', 'education', 'location']));
+        $consultant = Consultant::create($request->only(['name', 'email', 'phone_number', 'experience_years', 'about', 'profile_photo', 'education', 'location']));
         $consultant->specialties()->sync($request->specialities);
 
-        return redirect()->route('dashboard.consultant.index')->with('success', 'Consultant added successfully!');
+        $user = new User();
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
+        $user->role = 'consultant';
+        $user->save();
+
+        return redirect()->route('dashboard.consultants.index')->with('success', 'Consultant added successfully!');
     }
 
     public function viewEditAdmin(User $user)
@@ -208,8 +218,8 @@ class AdminController extends Controller
         $request->validate([
             'name' => 'required|string',
             'email' => 'required',
-            'phone_number' => 'required|integer',
-            'experience_year' => 'required|integer',
+            'phone_number' => 'required|regex:/^0\d+$/',
+            'experience_years' => 'required|integer',
             'about' => 'required|string',
             'profile_photo' => 'required|string',
             'education' => 'required|string',
@@ -217,10 +227,10 @@ class AdminController extends Controller
             'specialities' => 'required|array'
         ]);
 
-        $consultant->update($request->only(['name', 'email', 'phone_number', 'experience_year', 'about', 'profile_photo', 'education', 'location']));
+        $consultant->update($request->only(['name', 'email', 'phone_number', 'experience_years', 'about', 'profile_photo', 'education', 'location']));
         $consultant->specialties()->sync($request->specialities);
 
-        return redirect()->route('dashboard.consultant.index')->with('success', 'Consultant updated successfully!');
+        return redirect()->route('dashboard.consultants.index')->with('success', 'Consultant updated successfully!');
     }
     
     public function destroyArticle(Article $article)
@@ -236,7 +246,7 @@ class AdminController extends Controller
         $consultant->specialties()->detach();
         $consultant->delete();
 
-        return redirect()->route('dashboard.consultant.index')->with('success', 'Consultant deleted successfully!');
+        return redirect()->route('dashboard.consultants.index')->with('success', 'Consultant deleted successfully!');
     }
 
     public function destroyUser(User $user)

@@ -12,11 +12,30 @@ class Consultant extends Model
         'name',
         'email',
         'phone_number',
+        'experience_years',
+        'about',
         'profile_photo',
+        'education',
+        'location',
     ];
 
     public function specialties()
     {
         return $this->belongsToMany(Specialty::class, 'consultant_specialties');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'id');
+    }
+
+    public function ratings()
+    {
+        return $this->hasMany(Rating::class);
+    }
+
+    public function averageRating()
+    {
+        return $this->ratings->avg('rating');
     }
 }

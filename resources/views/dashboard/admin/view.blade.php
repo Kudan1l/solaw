@@ -46,7 +46,7 @@
                     <h4 class="ms-auto">{{ $totalConsultant }}</h4>
                 </div>
             </div>
-            <div class="card">
+            <!-- <div class="card">
                 <div class="card-body d-flex align-items-center gap-3 shadow">
                     <i class="bi bi-person-up fs-2"></i>
                     <div class="detail-text d-flex flex-column">
@@ -55,8 +55,8 @@
                     </div>
                     <h4 class="ms-auto">7</h4>
                 </div>
-            </div>
-            <div class="card">
+            </div> -->
+            <!-- <div class="card">
                 <div class="card-body d-flex align-items-center gap-3 shadow">
                     <i class="bi bi-person-down fs-2"></i>
                     <div class="detail-text d-flex flex-column">
@@ -65,7 +65,7 @@
                     </div>
                     <h4 class="ms-auto">7</h4>
                 </div>
-            </div>
+            </div> -->
         </div>
         <div class="peson d-flex g-3 justify-content-between mb-3">
             <div class="card">
@@ -78,7 +78,7 @@
                     <h4 class="ms-auto">{{ $totalUser }}</h4>
                 </div>
             </div>
-            <div class="card">
+            <!-- <div class="card">
                 <div class="card-body d-flex align-items-center gap-3 shadow">
                     <i class="bi bi-person-check fs-2"></i>
                     <div class="detail-text d-flex flex-column">
@@ -87,8 +87,8 @@
                     </div>
                     <h4 class="ms-auto">7</h4>
                 </div>
-            </div>
-            <div class="card">
+            </div> -->
+            <!-- <div class="card">
                 <div class="card-body d-flex align-items-center gap-3 shadow">
                     <i class="bi bi-person-add fs-2"></i>
                     <div class="detail-text d-flex flex-column">
@@ -97,7 +97,7 @@
                     </div>
                     <h4 class="ms-auto">7</h4>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 </x-layout-dashboard>

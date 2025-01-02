@@ -9,7 +9,7 @@
     <x-slot:css>{{ asset('css/dashboard/admin/main.css') }}</x-slot:css>
     <x-slot:nav>Kelola Konsultant</x-slot:nav>
 
-    <a href="{{ route('dashboard.consultant.add') }}" class="btn btn-primary mb-3">Tambah Konsultant</a>
+    <a href="{{ route('dashboard.consultants.add') }}" class="btn btn-primary mb-3">Tambah Konsultant</a>
     <table class="table">
         <thead>
             <tr class="table-primary">
@@ -26,7 +26,7 @@
                 <td>{{ $consultants->name }}</td>
                 <td>{{ $consultants->email }}</td>
                 <td class="d-flex gap-2">
-                    <a href="{{ route('dashboard.consultant.edit',$consultants->id) }}" class="btn btn-warning btn-sm">Edit</a>
+                    <a href="{{ route('dashboard.consultants.edit',$consultants->id) }}" class="btn btn-warning btn-sm">Edit</a>
                     <form action="" method="POST" onsubmit="return confirm('Are you sure you want to delete this article?');">
                         @csrf
                         @method('DELETE')

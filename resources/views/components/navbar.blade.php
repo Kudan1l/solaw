@@ -30,9 +30,7 @@
                         <a href="{{ route('procedure.menu') }}">
                             <h4>Prosedur Hukum</h4>
                             <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit. Mauris et dapibus orci, at tincidunt ipsum.
-                            Aliquam id sem a enim.
+                            Deskripsi singkat mengenai prosedur hukum, menyebutkan tentang metode atau proses dalam menjalani hukum, seperti cara penyelesaian masalah hukum.
                             </p>
                         </a>
                         </div>
@@ -40,19 +38,7 @@
                             <a href="{{ route('PEMBUATANDOKUM') }}">
                             <h4>Pembuatan Dokumen</h4>
                                 <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing
-                                elit. Mauris et dapibus orci, at tincidunt ipsum.
-                                Aliquam id sem a enim.
-                                </p>
-                            </a>
-                        </div>
-                        <div class="col item-dropdown">
-                            <a href="">
-                                <h4>Izin Usaha</h4>
-                                <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing
-                                elit. Mauris et dapibus orci, at tincidunt ipsum.
-                                Aliquam id sem a enim.
+                                Deskripsi tentang proses pembuatan dokumen, seperti pembuatan dokumen legal atau administrasi yang diperlukan dalam berbagai prosedur.
                                 </p>
                             </a>
                         </div>
@@ -68,10 +54,12 @@
             @auth
                 <!-- Jika pengguna adalah admin, tampilkan link ke dashboard -->
                 @if(Auth::user()->role === 'admin')
-                    <a id="signupLink" class="nav-link" href="{{ route('dashboard') }}">{{ Auth::user()->name }}</a>
-                    @elseif(Auth::user()->role === 'user')
-                    <a id="signupLink" class="nav-link" href="{{ route('dashboard') }}">{{ Auth::user()->name }}</a>
-                    @else
+                        <a id="signupLink" class="nav-link" href="{{ route('dashboard') }}">{{ Auth::user()->name }}</a>
+                @elseif(Auth::user()->role === 'user')
+                        <a id="signupLink" class="nav-link" href="{{ route('dashboard.user.index') }}">{{ Auth::user()->name }}</a>
+                @elseif(Auth::user()->role === 'consultant')
+                    <a id="signupLink" class="nav-link" href="{{ route('dashboard.consultant.index') }}">{{ Auth::user()->name }}</a>
+                @else
                     <!-- Jika pengguna bukan admin, tampilkan link ke home atau halaman lain -->
                     <a id="signupLink" class="nav-link" href="{{ route('home') }}">{{ Auth::user()->name }}</a>
                 @endif

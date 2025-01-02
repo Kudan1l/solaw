@@ -27,7 +27,7 @@
             <div class="card shadow mb-3 mx-md-auto w-50">
                 <div class="card-body">
                     <div class="d-flex">
-                        <img src="{{ $consultants->profile_photo }}" alt="alt={{ $consultants->name }}" class="card-img rounded shadow" style="width: 120px; height: 120px; object-fit: cover;">
+                        <img src="{{ $consultants->profile_photo }}" alt="{{ $consultants->name }}" class="card-img rounded shadow" style="width: 120px; height: 120px; object-fit: cover;">
                         <div class="ms-3 d-flex flex-column justify-content-center">
                             <!-- Nama Konsultan -->
                             <h1 class="m-0">{{ $consultants->name }}</h1>
@@ -120,20 +120,30 @@
                             <!-- Konten Ulasan -->
                             <div class="tab-pane fade" id="ulasan" role="tabpanel" aria-labelledby="ulasan-tab">
                                 <div class="card-ulasan">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <i class="bi bi-star-fill"></i>
-                                            <i class="bi bi-star-fill"></i>
-                                            <i class="bi bi-star-fill"></i>
-                                            <i class="bi bi-star-fill"></i>
-                                            <i class="bi bi-star-fill"></i>
+                                    @foreach($consultants->ratings as $rating)
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <strong>{{ $rating->user->name }}</strong>
+                                                <div class="ratings-list">
+                                                    @for($i = 0; $i < $rating->rating; $i++)
+                                                        <i class="bi bi-star-fill"></i>
+                                                    @endfor
+                                                    @for($i = $rating->rating; $i < 5; $i++)
+                                                        <i class="bi bi-star"></i>
+                                                    @endfor
+                                                </div>
+                                                @if($rating->comment)
+                                                    <span><strong>Komentar:</strong> {{ $rating->comment }}</span>
+                                                @else
+                                                    <span><strong>Belum ada komentar.</strong></span>
+                                                @endif
+                                            </div>
                                         </div>
-                                    </div>
+                                    @endforeach
                                 </div>
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>

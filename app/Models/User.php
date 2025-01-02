@@ -16,4 +16,9 @@ class User extends Authenticatable
         "password",
         "role",
     ];
+
+    public function consultant()
+    {
+        return $this->hasOne(Consultant::class, 'id');
+    }
 }
