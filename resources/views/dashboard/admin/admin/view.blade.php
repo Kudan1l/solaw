@@ -27,7 +27,7 @@
                 <td>{{ $users->email }}</td>
                 <td class="d-flex gap-2">
                     <a href="{{ route('dashboard.admin.edit', $users->id) }}" class="btn btn-warning btn-sm">Edit</a>
-                    <form action="{{ route('dashboard.user.destroy', $users->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this article?');">
+                    <form action="{{ route('dashboard.users.destroy', $users->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this article?');">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger btn-sm">Delete</button>

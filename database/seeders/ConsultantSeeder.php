@@ -16,7 +16,7 @@ class ConsultantSeeder extends Seeder
         DB::table('consultants')->insert([
             [
                'name' => 'Dr. Budi Santoso, SH., M.H.',
-                'email' => 'budi@email.com',
+                'email' => 'budi@gmail.com',
                 'phone_number' => '08123456789',
                 'experience_years' => 10,
                 'about' => 'Dr. Budi Santoso, SH., M.H. adalah seorang konsultan hukum berpengalaman lebih dari 10 tahun di bidang hukum keluarga dan pidana. Beliau memiliki rekam jejak yang solid dalam menangani kasus perceraian, hak asuh anak, serta berbagai kasus pidana. Budi dikenal dengan pendekatan yang empatik dan profesional dalam menyelesaikan masalah hukum kliennya.',
@@ -28,7 +28,7 @@ class ConsultantSeeder extends Seeder
             ],
             [
                 'name' => 'Siti Dewi Lestari, SH.',
-                'email' => 'dewi@email.com',
+                'email' => 'dewi@gmail.com',
                 'phone_number' => '08234567890',
                 'experience_years' => 7,
                 'about' => 'Siti Dewi Lestari, SH. memiliki spesialisasi dalam kasus perdata seperti sengketa properti, kontrak bisnis, dan penyelesaian konflik antar perusahaan. Dengan lebih dari 7 tahun pengalaman, Dewi menawarkan solusi hukum yang berbasis pada negosiasi dan mediasi untuk mencapai kesepakatan yang adil bagi semua pihak.',
@@ -40,7 +40,7 @@ class ConsultantSeeder extends Seeder
             ],
             [
                 'name' => 'Andi Prasetyo, SH., M.H.',
-                'email' => 'andi@email.com',
+                'email' => 'andi@gmail.com',
                 'phone_number' => '08345678901',
                 'experience_years' => 12,
                 'about' => 'Andi Prasetyo, SH., M.H. adalah seorang konsultan hukum yang memiliki pengalaman luas dalam menangani kasus pidana dan hukum bisnis. Beliau memiliki keahlian dalam membela hak-hak klien dalam perkara pidana dan juga membantu perusahaan dalam menyelesaikan sengketa bisnis. Dengan pendekatan yang tegas dan efektif, Andi selalu mencari cara terbaik untuk membela kliennya.',

@@ -27,6 +27,7 @@ return new class extends Migration
         Schema::create('specialties', function (Blueprint $table){
             $table->id();
             $table->string('name');
+            $table->timestamps();
         });
 
         Schema::create('consultant_specialties', function (Blueprint $table) {
@@ -34,6 +35,15 @@ return new class extends Migration
             $table->foreignId('consultant_id')->constrained('consultants')->onDelete('cascade');
             $table->foreignId('specialty_id')->constrained('specialties')->onDelete('cascade');
             $table->unique(['consultant_id', 'specialty_id']); 
+        });
+
+        Schema::create('ratings', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('consultant_id')->constrained('consultants')->onDelete('cascade');
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->integer('rating')->unsigned()->default(0); // Rating (misal 1-5)
+            $table->text('comment')->nullable(); // Komentar opsional
+            $table->timestamps();
         });
     }
 
@@ -45,5 +55,6 @@ return new class extends Migration
         Schema::dropIfExists('consultants');
         Schema::dropIfExists('specialties');
         Schema::dropIfExists('consultant_specialties');
+        Schema::dropIfExists('ratings');
     }
 };

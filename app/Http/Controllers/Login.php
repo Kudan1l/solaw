@@ -27,7 +27,7 @@ class Login extends Controller
     {
         // Validasi data input
         $request->validate([
-            'name' => ['required', 'regex:/^[a-zA-Z\s]+$/', 'max:50'],
+            'name' => ['required', 'regex:/^[a-zA-Z\s.,]+$/', 'max:50'],
             'email' => 'required|email|unique:users,email',
             'password' => 'required|min:6',
         ]);

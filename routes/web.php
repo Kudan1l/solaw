@@ -12,7 +12,8 @@ use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ThreadController;
 
 use App\Http\Controllers\AdminController;
-
+use App\Http\Controllers\ConsultantDashboardController;
+use App\Http\Controllers\UserController;
 use App\Http\Middleware\checkLogin;
 
 //atasi 404
@@ -111,11 +112,11 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
         Route::put('/edit/{article}', [AdminController::class, 'updateArticle'])->name('update');
         Route::delete('/{article}', [AdminController::class, 'destroyArticle'])->name('destroy');
     });
-    Route::prefix('dashboard/users')->name('dashboard.user.')->group(function(){
+    Route::prefix('dashboard/users')->name('dashboard.users.')->group(function(){
         Route::get('/', [AdminController::class, 'viewUser'])->name('index');
         Route::delete('/{user}', [AdminController::class, 'destroyUser'])->name('destroy');
     });
-    Route::prefix('dashboard/consultants')->name('dashboard.consultant.')->group(function(){
+    Route::prefix('dashboard/consultants')->name('dashboard.consultants.')->group(function(){
         Route::get('/', [AdminController::class, 'viewConsultant'])->name('index');
         Route::get('/form', [AdminController::class, 'viewFormConsultant'])->name('add');
         Route::post('/form', [AdminController::class, 'storeConsultant'])->name('store');
@@ -130,12 +131,25 @@ Route::middleware(['auth', 'role:admin'])->group(function() {
         Route::get('/edit/{user}', [AdminController::class, 'viewEditAdmin'])->name('edit');
         Route::put('/edit/{user}', [AdminController::class, 'updateAdmin'])->name('update');
     });
-
+    
     Route::post('/categories', [AdminController::class, 'storeCategory'])->name('categories.store');
-    Route::post('/specialties', [AdminController::class, 'storeSpecialiy'])->name('speciality.store');
+    Route::post('/specialties', [AdminController::class, 'storeSpeciality'])->name('speciality.store');
     
 });
 
+Route::middleware(['auth', 'role:user'])->group(function() {
+    Route::prefix('dashboard/user')->name('dashboard.user.')->group(function(){
+        Route::get('/', [UserController::class, 'viewDashboard'])->name('index');
+    });
+});
+
+Route::middleware(['auth', 'role:consultant'])->group(function() {
+    Route::prefix('dashboard/consultant')->name('dashboard.consultant.')->group(function(){
+        Route::get('/', [ConsultantDashboardController::class, 'viewDashboard'])->name('index');
+        Route::get('/edit/{consultant}', [ConsultantDashboardController::class, 'viewForm'])->name('edit');
+        Route::put('/edit/{consultant}', [ConsultantDashboardController::class, 'updateConsultant'])->name('update');
+    });
+});
 Route::get('/prosedure', function () {
     return view('procedure/view');
 })->name('procedure.menu');
@@ -151,3 +165,10 @@ Route::get('/kp', function () {
 Route::get('/ca', function () {
     return view('procedure/ca');
 })->name('ca');
+
+// Route::get('/test', function () {
+//     return view('dashboard/user/view');
+// })->name('test');
+
+
+

@@ -25,7 +25,7 @@
                 <td>{{ $users->name }}</td>
                 <td>{{ $users->email }}</td>
                 <td>
-                    <form action="{{ route('dashboard.user.destroy', $users->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this article?');">
+                    <form action="{{ route('dashboard.users.destroy', $users->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this article?');">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger btn-sm">Delete</button>

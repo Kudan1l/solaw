@@ -12,8 +12,6 @@ class DatabaseSeeder extends Seeder
     public function run(){
         $this->call([
             ConsultantSeeder::class,
-            
-            
         ]);
 
         DB::table("articles")->insert([
@@ -97,27 +95,38 @@ Dengan adanya perlindungan hukum yang baik, transaksi perbankan yang melibatkan 
                 'article_id' => '4',
                 'category_id'=> '3',
             ],
-        ]);  
+        ]);
 
         DB::table('users')->insert([
             [
                 'name' => 'Aditya Cahyadi',
                 'email' => 'adit@gmail.com',
                 'password' => Hash::make('ganteng'),
-                'role' => 'user', 
-                // Tidak perlu menambahkan 'role' karena sudah default
+                'role' => 'user',
             ],
             [
                 'name' => 'admin',
                 'email' => 'admin@gmail.com',
                 'password' => Hash::make('admin'),
-                'role' => 'admin', // Role 'admin' harus disebutkan secara eksplisit
+                'role' => 'admin',
             ],
             [
-                'name' => 'Agung',
-                'email' => 'agung@gmail.com',
-                'password' => Hash::make('agungpassword'),
-                'role' => 'user', // Role 'user' untuk Agung
+                'name' => 'Dr. Budi Santoso, SH., M.H.',
+                'email' => 'budi@gmail.com',
+                'password' => Hash::make('consultant'),
+                'role' => 'consultant',
+            ],
+            [
+                'name' => 'Siti Dewi Lestari, SH.',
+                'email' => 'siti@gmail.com',
+                'password' => Hash::make('consultant'),
+                'role' => 'consultant',
+            ],
+            [
+                'name' => 'Andi Prasetyo, SH., M.H.',
+                'email' => 'andi@gmail.com',
+                'password' => Hash::make('consultant'),
+                'role' => 'consultant',
             ],
         ]);
 
@@ -137,27 +146,12 @@ Dengan adanya perlindungan hukum yang baik, transaksi perbankan yang melibatkan 
             'updated_at' => Carbon::now(),
         ]);
 
-        $thread3 = DB::table('threads')->insertGetId([
-            'title' => 'Pentingnya Perlindungan Hak Asasi Manusia dalam Sistem Hukum Indonesia',
-            'content' => 'Hak asasi manusia sering kali terabaikan dalam sistem hukum Indonesia. Bagaimana kita bisa memastikan bahwa hukum di Indonesia melindungi hak-hak dasar setiap individu?',
-            'user_id' => 3, // Mengacu pada ID pengguna yang valid
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now(),
-        ]);
-
         // Membuat komentar untuk thread pertama
         DB::table('comments')->insert([
             [
                 'content' => 'Menurut saya, reformasi hukum di Indonesia sangat penting. Salah satu langkah yang perlu diambil adalah memperbaiki sistem pendidikan hukum agar lebih berpihak pada keadilan.',
                 'thread_id' => $thread1,
                 'user_id' => 2, // Mengacu pada ID pengguna yang valid
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now(),
-            ],
-            [
-                'content' => 'Setuju! Pendidikan hukum yang lebih baik dapat membentuk pemahaman yang lebih baik bagi masyarakat. Selain itu, penegakan hukum yang adil harus menjadi prioritas utama.',
-                'thread_id' => $thread1,
-                'user_id' => 3, // Mengacu pada ID pengguna yang valid
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],
@@ -181,24 +175,9 @@ Dengan adanya perlindungan hukum yang baik, transaksi perbankan yang melibatkan 
             ],
         ]);
 
-        // Membuat komentar untuk thread ketiga
-        DB::table('comments')->insert([
-            [
-                'content' => 'Perlindungan hak asasi manusia memang sangat penting, namun sering kali diabaikan dalam proses hukum. Diperlukan pendekatan yang lebih sistematis untuk memastikan hak-hak dasar setiap individu terlindungi.',
-                'thread_id' => $thread3,
-                'user_id' => 2, // Mengacu pada ID pengguna yang valid
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now(),
-            ],
-            [
-                'content' => 'Saya berharap ada lebih banyak lembaga yang mengawasi pelaksanaan hak asasi manusia dalam sistem hukum kita, sehingga tindakan penyalahgunaan bisa diminimalkan.',
-                'thread_id' => $thread3,
-                'user_id' => 1, // Mengacu pada ID pengguna yang valid
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now(),
-            ],
+        $this->call([
+            RatingSeeder::class,
         ]);
-             
     }
         
 }

@@ -4,23 +4,27 @@
 
     <div class="card border-0 shadow">
         <div class="card-body">
-            <form action="{{ route('dashboard.consultant.store') }}" method="POST">
+            <form action="{{ route('dashboard.consultants.store') }}" method="POST">
                 @csrf
                 <div class="mb-3">
                     <label for="name" class="form-label">Name</label>
                     <input type="text" class="form-control" name="name" id="name" placeholder="Name">
                 </div>
                 <div class="mb-3">
-                    <label for="email" class="form-label">Description</label>
+                    <label for="email" class="form-label">Email</label>
                     <input type="email" class="form-control" name="email" id="email" placeholder="Email">
                 </div>
                 <div class="mb-3">
-                    <label for="phone_number" class="form-label">Content</label>
+                    <label for="phone_number" class="form-label">Phone Number</label>
                     <input type="number" class="form-control" name="phone_number" id="phone_number" placeholder="Phone Number">
                 </div>
                 <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control" name="password" id="password" placeholder="Password">
+                </div>
+                <div class="mb-3">
                     <label for="experience_years" class="form-label">Experience Year</label>
-                    <input type="number" class="form-control" name="experience_year" id="experience_years" placeholder="Experience Year">
+                    <input type="number" class="form-control" name="experience_years" id="experience_years" placeholder="Experience Year">
                 </div>
                 <div class="mb-3">
                     <label for="about" class="form-label">About</label>
@@ -53,7 +57,7 @@
                     <button type="button" class="btn btn-link p-0 text-decoration-none" data-bs-toggle="modal" data-bs-target="#addSpecialtiesModal">+ Add Speciality</button>
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
-                <a href="{{ route('dashboard.consultant.index') }}" class="btn btn-secondary">Kembali</a>
+                <a href="{{ route('dashboard.consultants.index') }}" class="btn btn-secondary">Kembali</a>
             </form>
         </div>
     </div>

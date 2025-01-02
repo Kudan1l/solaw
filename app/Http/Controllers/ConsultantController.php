@@ -9,7 +9,7 @@ use App\Models\Specialties;
 class ConsultantController extends Controller
 {
     public function ConsultantsMenu(){
-        $consultants = Consultant::with('specialties')->get();
+        $consultants = Consultant::with('specialties', 'ratings.user')->get();
         return view('consultant.consultant_menu', compact('consultants'));
     }
 
